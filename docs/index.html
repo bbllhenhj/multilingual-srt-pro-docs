@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多语种SRT PRO：帧级字幕精制 — 技术规范、实测对比与整数帧 .srt 样本库</title>
+  <meta name="description" content="面向短视频创作者、影视后期与跨境出海团队的多语种帧级字幕精制 AI Skill 工具。配音定稿本机词级强制对齐实现 100% 零错字，支持 27 个语种区域语法断行、10 档专业剪辑帧率整数帧边界对齐。当前体验价 0.5 元/次，同一份文本或同一个音频 24 小时内免费修改与重排。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://multilingual-srt-pro.github.io/multilingual-srt-pro/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="多语种SRT PRO：帧级字幕精制 (Multilingual SRT PRO)">
+  <meta property="og:description" content="已有配音定稿本机词级强制对齐 100% 零错字 · 27 语种语法禁则断行 · 23.976–120fps 十档整数帧边界对齐 · 体验价 0.5 元/次，同一文本或同一音频 24h 内免费修改。">
+  <meta property="og:url" content="https://multilingual-srt-pro.github.io/multilingual-srt-pro/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://multilingual-srt-pro.github.io/multilingual-srt-pro/#software",
+      "name": "多语种SRT PRO：帧级字幕精制",
+      "alternateName": [
+        "多语种SRT PRO",
+        "Multilingual SRT PRO"
+      ],
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Windows, macOS",
+      "url": "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef",
+      "sameAs": [
+        "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef"
+      ],
+      "description": "面向短视频创作者、影视后期与跨境出海团队的专业多语种帧级字幕精制 AI Skill 工具（支付宝 AI付 PAYATHON 2026 Machine Pay 赛道公开作品）。以配音定稿为基准文本实现 100% 零错字词级强制对齐，支持 27 个标准语种区域语法禁则与双行视觉平衡断行、23.976 至 120 fps 十档专业剪辑帧率整数帧边界对齐、横竖屏秒级重排及音视频本机零上传解析。按需微付费，当前体验价 0.5 元/次（实时计费标准以支付宝 AI付 作品页公示为准），同一份文本或同一个音频 24 小时内均可免重复计费修改与重排。",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.50",
+        "priceCurrency": "CNY",
+        "url": "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef",
+        "description": "按需微付费，无需包月订阅：当前体验价 0.5 元/次（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。同一份文本或同一个音频，24 小时内均可免重复计费修改与重排（含同音频改文本、同文本换音频、切换横竖屏版式与十档帧率）。"
+      },
+      "featureList": [
+        "100% 忠于配音定稿零错字（本机词级强制对齐，从机制上规避同音字误识）",
+        "真实人声呼吸气口检测 + 27 个标准语种区域语法禁则与双行视觉平衡（实测英文短/长行视觉宽比 0.77，德语无孤儿词）",
+        "23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, 120 fps 十档专业剪辑帧率整数帧对齐（剪映/Premiere/DaVinci Resolve/Final Cut Pro 零闪帧零重叠）",
+        "同一份文本或同一个音频 24 小时内免重复计费修改与重排（涵盖同音频改台词文本、同文本换重录音频、16:9 横屏双行与 9:16 竖屏 ≤12-14 字单行及十档帧率互转）",
+        "音视频全程本机解析无需上传原片，支持 Claude Code / Cursor / Antigravity 等 AI 助手一句话自然调用"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://multilingual-srt-pro.github.io/multilingual-srt-pro/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "已经有配音定稿文稿，怎么快速生成 100% 零错字的 SRT 字幕？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多语种SRT PRO 直接以审校后的配音定稿作为基准文本，在本机对音视频与原稿执行词级强制对齐，不走无原稿约束的语音盲识别，从机制上规避『算力中心』变『算力真心』等同音误识，专有名词与财经数字 100% 原样保留。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "剪映、Premiere Pro 或达芬奇导入 SRT 字幕出现时间轴闪帧、对不齐 24fps 或 60fps 怎么解决？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "闪帧源于普通 SRT 的任意毫秒时间戳未落在视频工程整数帧边界上。多语种SRT PRO 原生支持 23.976、24、25、29.97、30、48、50、59.94、60、120 fps 十档剪辑帧率整数帧对齐（如 24fps 下精确输出 00:00.250 第6帧 -> 00:02.208 第53帧 -> 00:05.500 第132帧），导入剪映、Premiere Pro、DaVinci Resolve 与 Final Cut Pro 零闪帧、零轨道重叠。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "英语、德语等小语种出海视频字幕怎么按语法自然断行且不断词？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "工具融合本机人声呼吸气口检测与 27 个标准语种区域（简繁中、美/英式英语、日、韩、德、法、西、葡、意、俄、阿、越、泰、印尼等）语法禁则，自动规避介词或冠词悬垂行尾，实测英文双行短/长行视觉宽比达 0.77，德语长句无孤儿词。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "多语种SRT PRO 如何计费？修改台词、更换配音音频或横屏改竖屏会重复收费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按需微付费，无需包月订阅：当前体验价 0.5 元/次（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。同一份文本或同一个音频，24 小时内均可免重复计费修改与重排，涵盖三大返工场景：① 同一音频修改文本（微调台词、润色译稿或调整标点）；② 同一文本更换音频（配音员重录语气或调整语速版本）；③ 切换版式与帧率（16:9 横屏双行与 9:16 竖屏 ≤12–14 字单行互转、24fps 与 60fps 等十档帧率互转）。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0284c7;
+      --accent-soft: #e0f2fe;
+      --highlight-bg: #fffbeb;
+      --highlight-border: #f59e0b;
+      --code-bg: #0f172a;
+      --code-text: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.68;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 30px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .cta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      padding-top: 8px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: 8px;
+    }
+    .btn-primary:hover { opacity: 0.92; }
+    .meta-note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .pricing-callout {
+      background: var(--highlight-bg);
+      border: 2px solid var(--highlight-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .pricing-callout h2 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      color: #92400e;
+    }
+    .price-tag {
+      font-size: 26px;
+      font-weight: 800;
+      color: #b45309;
+    }
+    .pricing-callout ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+    .pricing-callout li { margin-bottom: 8px; }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    h3 {
+      margin: 20px 0 10px;
+      font-size: 17px;
+    }
+    .feature-list li { margin-bottom: 8px; }
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+    }
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 16px 18px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.55;
+      margin: 10px 0 16px;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 18px;
+    }
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      margin: 0;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) {
+      .sample-grid { grid-template-columns: 1fr; }
+      header, section { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">支付宝 AI付 PAYATHON 2026 Machine Pay 赛道公开作品 · Windows &amp; macOS</span>
+      <h1>多语种SRT PRO：帧级字幕精制 <small style="font-size: 18px; font-weight: 500; color: #475569;">(Multilingual SRT PRO)</small></h1>
+      <p class="subtitle">
+        面向短视频创作者、影视后期剪辑师与跨境出海团队的专业多语种帧级字幕精制 AI Skill 工具。在已有配音定稿的前提下，通过本机词级强制对齐实现 <strong>100% 忠于配音定稿零错字</strong>，融合人声呼吸气口与 <strong>27 个标准语种区域语法禁则</strong>，原生吸附至 <strong>23.976 至 120 fps 十档专业剪辑帧率整数帧边界</strong>，全程本地解析零原片上传。
+      </p>
+      <div class="cta-bar">
+        <a class="btn-primary" href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef" rel="noopener">前往支付宝 AI付 官方作品主页下载 Skill 包</a>
+        <span class="meta-note">官方指定获取入口：打开作品主页后点击「下载 Skill 包」挂载至 Claude Code / Cursor / Antigravity</span>
+      </div>
+    </header>
+
+    <div class="pricing-callout" id="pricing">
+      <h2>计费标准与 24 小时免费修改核心权益</h2>
+      <p style="margin: 0 0 8px;">
+        按需微付费，无需包月订阅：<span class="price-tag">当前体验价 0.5 元/次</span>（<code>0.50 CNY</code>，2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。
+      </p>
+      <p style="margin: 0; font-weight: 700; color: #78350f;">
+        核心权益保障：同一份文本 或 同一个音频，24 小时内均可免重复计费修改与重排！
+      </p>
+      <ul>
+        <li><strong>① 同一音频修改文本（24h 内免费）</strong>：编导微调台词用字、润色多语种译稿或调整标点，24 小时内复用同一音频重新生成免费；</li>
+        <li><strong>② 同一文本更换音频（24h 内免费）</strong>：配音员重录语气或调整语速版本，24 小时内复用同一文稿重新强制对齐时间轴免费；</li>
+        <li><strong>③ 切换版式与帧率（24h 内免费）</strong>：<code>16:9</code> 横屏双行宽字幕 &harr; <code>9:16</code> 竖屏 <code>&le;12–14</code> 字单行短字幕、<code>24fps</code> &harr; <code>60fps</code> 等十档帧率互转，24 小时内均免重复计费。</li>
+      </ul>
+    </div>
+
+    <section id="features">
+      <h2>一、 五大核心工程能力规格</h2>
+      <ul class="feature-list">
+        <li><strong>100% 忠于配音定稿零错字</strong>：本机词级强制对齐，直接锁定审校定稿文字，从机制上规避「算力中心」变「算力真心」等同音字误识。</li>
+        <li><strong>真实人声呼吸气口 + 27 个标准语种区域语法禁则</strong>：覆盖简繁中、美/英式英语、日、韩、德、法、西、葡、意、俄、阿、越、泰、印尼等 27 个区域，实测英文双行短/长行视觉宽比达 <code>0.77</code>，德语复合长句无孤儿词。</li>
+        <li><strong>10 档专业剪辑帧率整数帧对齐</strong>：原生支持 <code>23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, 120 fps</code>，导入剪映专业版、Premiere Pro、DaVinci Resolve、Final Cut Pro 零闪帧、零相邻轨道重叠。</li>
+        <li><strong>同文本或同音频 24 小时免费修改与横竖屏秒级重排</strong>：支持同音频改台词、同文本换配音及 <code>16:9</code> 双行与 <code>9:16</code> 竖屏 <code>&le;12–14</code> 字单行秒级互转，24 小时内免重复计费。</li>
+        <li><strong>音视频全程本机解析零上传</strong>：数 GB 的 4K 商业评测样片无需上传云端，支持 Claude Code、Cursor、Antigravity 等 AI 助手一句话自然语言调用。</li>
+      </ul>
+    </section>
+
+    <section id="comparison">
+      <h2>二、 5 款主流字幕生成与对齐方案定量对比矩阵</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>对比维度</th>
+              <th>多语种SRT PRO（帧级字幕精制）</th>
+              <th>Whisper / Stable-ts</th>
+              <th>剪映专业版</th>
+              <th>SRT-Craft (GitHub)</th>
+              <th>ATAlign</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>核心机制</strong></td>
+              <td><strong>配音定稿词级强制对齐</strong> + 气口语法求解</td>
+              <td>开放词表语音转文字 (ASR)</td>
+              <td>云端语音识别 + 文稿匹配</td>
+              <td>初稿 SRT + 原稿拼音比对修字</td>
+              <td>音频与文稿本地强制对齐</td>
+            </tr>
+            <tr>
+              <td><strong>错字控制</strong></td>
+              <td><strong>100% 锁定定稿文字，零同音错字</strong></td>
+              <td>专有名词易出现同音误识</td>
+              <td>偶发漏字或标点偏移</td>
+              <td>修补中文同音字，需先备初稿</td>
+              <td>保留输入原稿文字</td>
+            </tr>
+            <tr>
+              <td><strong>多语种断行</strong></td>
+              <td><strong>27 语种语法禁则</strong>（英宽比 <code>0.77</code> / 德零孤儿词）</td>
+              <td>按语音段切分，长句易超宽</td>
+              <td>外语长句易按字数硬切</td>
+              <td>不改动原初稿断行</td>
+              <td>依赖原稿静态分行</td>
+            </tr>
+            <tr>
+              <td><strong>工程整帧对齐</strong></td>
+              <td><strong>10 档帧率 (<code>23.976–120fps</code>) 整数帧吸附</strong></td>
+              <td>任意毫秒输出，无帧网格吸附</td>
+              <td>工程内按时基对齐，跨软件偶发舍入偏差</td>
+              <td>保持初稿毫秒时间戳不动</td>
+              <td>常规毫秒输出</td>
+            </tr>
+            <tr>
+              <td><strong>横竖屏改版</strong></td>
+              <td><strong>秒级重排</strong>（<code>16:9</code> 双行 &harr; <code>9:16</code> 单行 <code>&le;12–14</code>字）</td>
+              <td>需外部脚本二次拆分</td>
+              <td>需手动逐条拆分字幕块</td>
+              <td>不支持版式重排</td>
+              <td>需重新分行生成</td>
+            </tr>
+            <tr>
+              <td><strong>隐私与环境</strong></td>
+              <td><strong>macOS / Windows 本机解析零上传</strong></td>
+              <td>本地部署（需 Python/显卡）</td>
+              <td>需上传音频特征至云端</td>
+              <td>macOS / Windows 本地</td>
+              <td>仅限 Windows 本地</td>
+            </tr>
+            <tr>
+              <td><strong>计费与修改权益</strong></td>
+              <td><strong>体验价 <code>0.5 元/次</code></strong>（<strong>同一文本或同一音频 24h 内免费改</strong>）</td>
+              <td>开源免费</td>
+              <td>基础免费 / 高阶含 VIP 订阅</td>
+              <td>开源免费</td>
+              <td>基础免费</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="samples">
+      <h2>三、 标准整数帧边界 .srt 成品示范样本库</h2>
+      <p class="meta-note" style="margin-top: 0;">
+        仓库 <code>samples/</code> 目录下提供 4 份完整 UTF-8 标准 <code>.srt</code> 文件，所有时间戳均经帧周期公式严格量化至整数帧网格（如 24fps 下第 6 帧 <code>00:00.250</code> &rarr; 第 53 帧 <code>00:02.208</code> &rarr; 第 132 帧 <code>00:05.500</code>）：
+      </p>
+      <div class="sample-grid">
+        <div>
+          <h3>样本 01：中文 24fps 横屏双行 (16:9)</h3>
+          <pre><code>1
+00:00:00,250 --&gt; 00:00:02,208
+算力中心的液冷集群
+已完成全负荷压力测试
+
+2
+00:00:02,208 --&gt; 00:00:05,500
+单机柜功率密度较上一代
+传统风冷方案提升三倍</code></pre>
+        </div>
+        <div>
+          <h3>样本 02：同源中文 60fps 竖屏单行 (9:16, &le;13字)</h3>
+          <pre><code>1
+00:00:00,250 --&gt; 00:00:01,200
+算力中心的液冷集群
+
+2
+00:00:01,200 --&gt; 00:00:02,200
+已完成全负荷压力测试
+
+3
+00:00:02,200 --&gt; 00:00:03,750
+单机柜功率密度较上一代</code></pre>
+        </div>
+        <div>
+          <h3>样本 03：英语 30fps 视觉宽比 0.77 平衡断行</h3>
+          <pre><code>1
+00:00:00,267 --&gt; 00:00:02,200
+Built on frame-accurate alignment,
+every spoken phrase locks to your script.
+
+2
+00:00:02,200 --&gt; 00:00:05,500
+Natural breath pauses guide breaks
+while keeping prepositions with their nouns.</code></pre>
+        </div>
+        <div>
+          <h3>样本 04：德语 24fps 零孤儿词与框形结构保护</h3>
+          <pre><code>1
+00:00:00,250 --&gt; 00:00:03,250
+Keine abgerissenen Einzelwörter am Zeilenende,
+selbst bei komplexen deutschen Nebensätzen.
+
+2
+00:00:03,250 --&gt; 00:00:06,500
+Zusammengesetzte Fachbegriffe und Artikel
+bleiben mit ihrem Bezugswort fest verbunden.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quickstart">
+      <h2>四、 安装指引与 AI Agent 调用方式</h2>
+      <p>1. 在终端安装支付宝 AI付 官方 Agent 支付组件：</p>
+      <pre><code>npx -y @alipay/agent-payment@latest install</code></pre>
+      <p>
+        2. 访问官方指定获取页面：<a href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef">支付宝 AI付 社区《多语种SRT PRO：帧级字幕精制》作品主页</a>，点击页面上的 <strong>「下载 Skill 包」</strong> 按钮，解压至 Claude Code、Cursor 或 Antigravity 的 <code>skills/</code> 目录。
+      </p>
+      <p>3. 在对话框中直接发送自然语言指令：</p>
+      <pre><code>请使用「多语种SRT PRO」将本地视频 ./narration_master.mp4 与定稿文案 ./script_zh.txt 对齐，
+导出 24fps 横屏双行 SRT，并同步导出 60fps 9:16 竖屏单行（每行不超过13字）SRT。</code></pre>
+    </section>
+
+    <section id="faq">
+      <h2>五、 常见问题解答 (FAQ)</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q1：已经有配音定稿文稿，怎么快速生成 100% 零错字的 SRT 字幕？</div>
+        <p class="faq-a">多语种SRT PRO 直接以审校后的配音定稿作为基准文本，在本机对音视频与原稿执行词级强制对齐，不走无原稿约束的语音盲识别，从机制上规避「算力中心」变「算力真心」等同音误识，专有名词与财经数字 100% 原样保留。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q2：剪映、Premiere Pro 或达芬奇导入 SRT 字幕出现时间轴闪帧、对不齐 24fps 或 60fps 怎么解决？</div>
+        <p class="faq-a">闪帧源于普通 SRT 的任意毫秒时间戳未落在视频工程整数帧边界上。多语种SRT PRO 原生支持 23.976、24、25、29.97、30、48、50、59.94、60、120 fps 十档剪辑帧率整数帧对齐（如 24fps 下精确输出 00:00.250 第6帧 &rarr; 00:02.208 第53帧 &rarr; 00:05.500 第132帧），导入剪映、Premiere Pro、DaVinci Resolve 与 Final Cut Pro 零闪帧、零轨道重叠。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q3：英语、德语等小语种出海视频字幕怎么按语法自然断行且不断词？</div>
+        <p class="faq-a">工具融合本机人声呼吸气口检测与 27 个标准语种区域（简繁中、美/英式英语、日、韩、德、法、西、葡、意、俄、阿、越、泰、印尼等）语法禁则，自动规避介词或冠词悬垂行尾，实测英文双行短/长行视觉宽比达 0.77，德语长句无孤儿词。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q4：多语种SRT PRO 如何计费？修改台词、更换配音音频或横屏改竖屏会重复收费吗？</div>
+        <p class="faq-a">按需微付费，无需包月订阅：当前体验价 0.5 元/次（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。同一份文本或同一个音频，24 小时内均可免重复计费修改与重排，涵盖三大返工场景：① 同一音频修改文本（微调台词、润色译稿或调整标点）；② 同一文本更换音频（配音员重录语气或调整语速版本）；③ 切换版式与帧率（16:9 横屏双行与 9:16 竖屏 &le;12–14 字单行互转、24fps 与 60fps 等十档帧率互转）。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>多语种SRT PRO：帧级字幕精制 · 官方作品页：<a href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef">支付宝 AI付 社区</a> · 基准更新日期：2026-11-19</p>
+    </footer>
+  </div>
+</body>
+</html>
