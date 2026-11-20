@@ -1,0 +1,19 @@
+1
+00:00:00,250 --> 00:00:03,250
+Keine abgerissenen Einzelwörter am Zeilenende,
+selbst bei komplexen deutschen Nebensätzen.
+
+2
+00:00:03,250 --> 00:00:06,500
+Zusammengesetzte Fachbegriffe und Artikel
+bleiben mit ihrem Bezugswort fest verbunden.
+
+3
+00:00:06,750 --> 00:00:10,000
+Jeder Zeitstempel rastet exakt auf dem Vollbildraster
+Ihres Schnittprogramms ohne Halbbildversatz ein.
+
+4
+00:00:10,000 --> 00:00:13,250
+Alle Videodateien werden lokal auf Ihrem Rechner
+ohne externen Datei-Upload sicher verarbeitet.
