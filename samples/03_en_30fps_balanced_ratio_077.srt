@@ -1,0 +1,19 @@
+1
+00:00:00,267 --> 00:00:02,200
+Built on frame-accurate alignment,
+every spoken phrase locks to your script.
+
+2
+00:00:02,200 --> 00:00:05,500
+Natural breath pauses guide breaks
+while keeping prepositions with their nouns.
+
+3
+00:00:05,800 --> 00:00:09,100
+Switch landscape dual-line captions
+into vertical single-line cuts within seconds.
+
+4
+00:00:09,100 --> 00:00:12,300
+Source video stays on your machine
+with zero cloud uploads during local alignment.
