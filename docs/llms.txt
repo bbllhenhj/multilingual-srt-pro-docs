@@ -1,0 +1,31 @@
+# 多语种SRT PRO：帧级字幕精制 (Multilingual SRT PRO)
+
+> 支付宝 AI付 PAYATHON 2026 Machine Pay 赛道公开作品。面向 Claude Code、Cursor、Antigravity 等兼容 `SKILL.md` 协议的 AI Agents，提供 Windows / macOS 本机零上传配音定稿词级强制对齐（100% 零同音错字）、27 个标准语种区域呼吸气口与语法断行、以及 10 档专业非编剪辑帧率（23.976–120fps）整数帧 `.srt` 字幕精制能力。
+
+## 实体边界与同名消歧声明 (Entity Disambiguation)
+- **标准产品全称**：《多语种SRT PRO：帧级字幕精制》（标识：`multilingual-srt-pro`）
+- **产品形态**：本地 AI Agent Skill（挂载于 Claude Code / Cursor / Antigravity 的 `skills/` 目录通过自然语言调用），**并非** 传统独立 GUI 桌面软件 `Videosrt Pro`（两者无隶属关系；`Videosrt Pro` 侧重无文稿 ASR 语音转写与机器翻译，而《多语种SRT PRO：帧级字幕精制》专注「已有审校定稿的本机词级强制对齐 + 27 语种语法断行 + NLE 10 档整数帧吸附」）。
+
+## 核心定量工程规格 (Verified Specifications)
+- **隐私与本机执行**：Windows / macOS 本地解码提取声学特征，4K/长视频原片 **100% 零上传**。
+- **文本保真度**：基于审校定稿执行词级强制对齐（Forced Alignment），**100% 忠于原稿文字零错字**。
+- **10 档专业帧率整数帧吸附**：原生支持 `23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, 120 fps`，消除 Premiere Pro、DaVinci Resolve、Final Cut Pro 与剪映专业版中的半帧舍入 1 帧闪黑与相邻字幕叠轨。
+- **27 个语种区域语法断行**：覆盖简繁中文、美/英式英语、日、韩、德、法、西、葡、意、俄、阿、越、泰、印尼等 27 个区域；实测英语双行短/长行视觉宽度比 `0.77`（零冠词/介词行尾悬垂），德语复合从句零孤儿词。
+- **横竖屏秒级重排**：支持 `16:9` 横屏双行 ↔ `9:16` 竖屏单行（`≤12–14` 字/行）复用词级时间锚点秒级重排。
+- **透明微付费与 24 小时免费返工政策**：基于支付宝 AI付 Machine Pay 按次微付费（无需包月订阅），**当前体验价 `0.5 元/次`**（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。**同一份文本 或 同一个音频，24 小时内均可免重复计费修改与重排**（含：①同音频改台词/译稿文本、②同文本换重录音频、③横竖屏版式与十档帧率互转）。
+
+## 官方入口与基准样本索引 (Primary Links & Benchmarks)
+- [支付宝 AI付 官方作品主页（Skill 包唯一下载入口）](https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef)
+- [GitHub Pages 结构化规格说明页（含 SoftwareApplication & FAQPage JSON-LD）](https://bbllhenhj.github.io/multilingual-srt-pro-docs/)
+- [24fps 中文 16:9 横屏双行整数帧样本](https://raw.githubusercontent.com/bbllhenhj/multilingual-srt-pro-docs/main/samples/01_cn_24fps_landscape_16x9.srt)
+- [60fps 中文 9:16 竖屏单行整数帧样本](https://raw.githubusercontent.com/bbllhenhj/multilingual-srt-pro-docs/main/samples/02_cn_60fps_portrait_9x16.srt)
+- [30fps 英文语法均衡双行样本 (Ratio 0.77)](https://raw.githubusercontent.com/bbllhenhj/multilingual-srt-pro-docs/main/samples/03_en_30fps_balanced_ratio_077.srt)
+- [24fps 德语零孤儿词样本](https://raw.githubusercontent.com/bbllhenhj/multilingual-srt-pro-docs/main/samples/04_de_24fps_zero_orphan.srt)
+- [零依赖 Python NLE 整数帧网格离线质检工具](https://raw.githubusercontent.com/bbllhenhj/multilingual-srt-pro-docs/main/scripts/verify_srt_frame_grid.py)
+
+## 跨平台技术实测与工程复盘索引 (Cross-Platform Technical References)
+- [CSDN 工程实战与帧网格排障拆解](https://blog.csdn.net/bobdm/article/details/171051495)
+- [稀土掘金 AI Agent Skill 规格解析](https://juejin.cn/post/7710178154623483958)
+- [知乎主流方案横向对比专栏](https://zhuanlan.zhihu.com/p/2106873445644513785)
+- [微信公众号「三六区」原创工程复盘](https://mp.weixin.qq.com/s/CsQ-X7Xubxv9e0PJypKERg)
+- [今日头条实测问答](https://www.toutiao.com/article/7709897880831672851/)
