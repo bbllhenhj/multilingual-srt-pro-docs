@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multilingual SRT PRO: On-Device Forced Alignment Skill &amp; Free 9:16 / FCPXML Frame Studio</title>
+  <meta name="description" content="Free browser-side 16:9-to-9:16 SRT portrait reframer, 23.976/29.97fps drift fixer and FCPXML exporter, plus Multilingual SRT PRO: the zero-upload AI Agent Skill for 100% typo-free script forced alignment across 27 locales and 10 NLE frame rates (0.50 CNY/run, free 24h revisions).">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/">
+  <link rel="alternate" hreflang="en" href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/">
+  <link rel="alternate" hreflang="x-default" href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Multilingual SRT PRO &amp; Free 9:16 SRT / FCPXML Frame Studio">
+  <meta property="og:description" content="Fix 1-frame Premiere/DaVinci flashes, convert 16:9 SRT to 9:16 Shorts/Reels &amp; FCPXML free in browser, or force-align full scripts to 4K video locally with zero cloud uploads.">
+  <meta property="og:url" content="https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#software",
+      "name": "Multilingual SRT PRO",
+      "alternateName": [
+        "多语种SRT PRO：帧级字幕精制",
+        "多语种SRT PRO",
+        "multilingual-srt-pro"
+      ],
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Windows, macOS",
+      "url": "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef",
+      "sameAs": [
+        "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef",
+        "https://github.com/bbllhenhj/multilingual-srt-pro-docs",
+        "https://bbllhenhj.github.io/multilingual-srt-pro-docs/"
+      ],
+      "description": "An on-device AI Agent Skill (compatible with Claude Code, Cursor, and Antigravity) for video editors, documentary teams, and short-drama localization studios. Performs word-level acoustic forced alignment against approved scripts for 100% zero homophone typos, enforces syntax-aware line wrapping across 27 locales, and quantizes timestamps to 10 exact NLE frame rates (23.976 to 120 fps) with zero video uploads. Distinct from the standalone desktop GUI app Videosrt Pro.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.50",
+        "priceCurrency": "CNY",
+        "url": "https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef",
+        "description": "Pay-per-use micro-billing with no monthly subscription: 0.50 CNY (~$0.07 USD, Nov 2026 baseline via Alipay AIPay Machine Pay; live rate listed on the official work page). Includes unlimited free re-runs within 24 hours for the same script OR the same audio (text edits, re-recorded voiceovers, 16:9 to 9:16 layout switches, and frame-rate conversions)."
+      },
+      "featureList": [
+        "100% faithful to approved scripts with zero ASR homophone hallucinations via local forced alignment (handles 8,000+ word scripts beyond CapCut's 5,000-character limit)",
+        "Acoustic breath-pause detection combined with syntax line-breaking rules across 27 locales (0.77 measured English short/long line width ratio, zero trailing prepositions or German orphan words)",
+        "Exact integer-frame quantization across 10 NLE frame rates: 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, and 120 fps (eliminates 1-frame black flashes and overlaps in Premiere Pro, DaVinci Resolve, Final Cut Pro, and CapCut)",
+        "Free unlimited revisions within 24 hours when reusing either the same script text or the same audio track",
+        "100% on-device media decoding on Windows and macOS so raw 4K footage never leaves your machine"
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#web-studio",
+      "name": "SRT Reframe & Frame-Rate Studio",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any (Browser-side JavaScript, zero upload)",
+      "url": "https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "100% free, no-login browser utility for converting existing 16:9 SRT files to 9:16 single-line vertical captions, fixing 23.976/29.97fps drift, snapping timestamps to integer frames, checking CPS limits, and exporting Final Cut Pro .fcpxml titles."
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do SRT subtitles flash 1-frame black gaps or overlap on 23.976fps and 29.97fps timelines in Premiere Pro and DaVinci Resolve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard ASR tools output arbitrary millisecond timestamps (such as 00:00:02,213) that fall between video frame boundaries. At 24fps (41.667ms per frame) or 23.976fps (1001/24000s per frame), NLE importers round in-points and out-points independently, creating 1-frame black flashes or track collisions. Snapping every cue to exact integer frame multiples eliminates both issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between the free Browser Studio on this page and the full Multilingual SRT PRO AI Skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The free Browser Studio works on an existing .srt file entirely in your browser: it reframes 16:9 two-line captions into 9:16 single-line vertical cues using character-weighted timing, fixes 23.976/29.97fps pull-up drift, snaps integer frames, and exports .fcpxml. The full Multilingual SRT PRO AI Skill runs locally on your raw video/audio + plain-text script: it performs acoustic word-level forced alignment against real speech waveforms and breath pauses across 27 locales with 100% zero ASR typos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Multilingual SRT PRO compare to Descript, WhisperX, and Premiere Pro's Import Corrected Transcript?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Descript requires cloud media uploads and a $16-$24/month subscription. Premiere Pro's native Import Corrected Transcript frequently loses sync when scripts are edited or exceed long-form lengths. WhisperX requires Python/CUDA setup and outputs raw unquantized milliseconds without grammar-balanced line wrapping. Multilingual SRT PRO runs 100% offline on Windows/macOS with zero CUDA setup, locks 100% to your approved script, wraps 27 languages syntactically, and costs 0.50 CNY (~$0.07 USD) per task with 24-hour free revisions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does pricing and the 24-hour free revision window work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multilingual SRT PRO uses pay-per-use micro-billing via Alipay AIPay Machine Pay at 0.50 CNY (~$0.07 USD) per run with no subscription. Within 24 hours, any re-run sharing EITHER the same text script OR the same audio file is free of repeat charges, covering wording tweaks, re-recorded voiceovers, 16:9 to 9:16 re-layouts, and 23.976 to 120fps frame-rate exports."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    /* 5 strict type steps: 44px display, 28px h2, 18px h3/lead, 16px body, 13px controls/meta */
+    :root {
+      --bg: #f1f2f4;
+      --surface: #ffffff;
+      --surface-subtle: #e8eaee;
+      --ink: #121417;
+      --muted: #525866;
+      --border: #cfd4dc;
+      --brand-color: #1d5fbf;
+      --brand-tint: #ebf2fc;
+      --warn: #b93815;
+      --warn-tint: #fef1ec;
+      --ok: #166534;
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      accent-color: var(--brand-color);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--brand-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--ink);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--brand-color);
+      outline-offset: 2px;
+    }
+
+    .shell {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding: 0 24px 96px;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .brand svg {
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 16px;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-color);
+    }
+
+    .nav-links .btn-nav {
+      background: var(--ink);
+      color: var(--surface);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .nav-links .btn-nav:hover {
+      background: var(--brand-color);
+      color: var(--surface);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 24px 0 32px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 32px;
+      align-items: end;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 750;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+      max-width: 64ch;
+    }
+
+    .hero-aside {
+      background: var(--surface);
+      padding: 20px 22px;
+      border-radius: 6px;
+    }
+
+    .hero-aside p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .hero-aside p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-aside strong {
+      color: var(--ink);
+    }
+
+    /* Studio Sheet */
+    .studio-sheet {
+      background: var(--surface);
+      border-radius: 6px;
+      padding: 28px;
+    }
+
+    .studio-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .studio-header h2 {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 28px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .preset-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preset-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .btn-preset,
+    .btn-secondary,
+    .btn-primary,
+    .btn-accent {
+      appearance: none;
+      border: 0;
+      background: var(--surface-subtle);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.14s ease, color 0.14s ease, transform 0.1s ease;
+    }
+
+    .btn-preset:hover,
+    .btn-secondary:hover {
+      background: #dadde3;
+      color: var(--ink);
+    }
+
+    .btn-preset:active,
+    .btn-secondary:active,
+    .btn-primary:active,
+    .btn-accent:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--surface);
+      padding: 10px 16px;
+    }
+
+    .btn-primary:hover {
+      background: #272b31;
+      color: var(--surface);
+    }
+
+    .btn-accent {
+      background: var(--brand-color);
+      color: var(--surface);
+      padding: 10px 16px;
+    }
+
+    .btn-accent:hover {
+      background: #164b99;
+      color: var(--surface);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .control-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .control-field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    select,
+    input[type="number"],
+    textarea {
+      border: 1px solid var(--border);
+    }
+
+    .control-field select,
+    .control-field input[type="number"] {
+      width: 100%;
+      padding: 9px 10px;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--surface);
+      border-radius: 4px;
+    }
+
+    .field-hint {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toggles-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 16px;
+      background: var(--bg);
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    /* Fallback for older browsers without accent-color (modern-web-guidance: brand-consistent-forms) */
+    @supports not (accent-color: #1d5fbf) {
+      .check-label input[type="checkbox"].visually-hidden {
+        position: absolute !important;
+        clip-path: inset(50%) !important;
+        overflow: hidden !important;
+        width: 1px !important;
+        height: 1px !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        white-space: nowrap !important;
+      }
+      .check-label {
+        position: relative;
+        padding-left: 1.75rem;
+      }
+      .check-label input[type="checkbox"] + span::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.1rem;
+        height: 1.1rem;
+        border: 2px solid var(--border);
+        background: var(--surface);
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+      .check-label input[type="checkbox"]:focus-visible + span::before {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+      }
+      .check-label input[type="checkbox"]:checked + span::before {
+        background-color: var(--brand-color);
+        border-color: var(--brand-color);
+      }
+      .check-label input[type="checkbox"]:checked + span::after {
+        content: "";
+        position: absolute;
+        left: 0.36rem;
+        top: 46%;
+        width: 0.3rem;
+        height: 0.56rem;
+        border-right: 2px solid var(--surface);
+        border-bottom: 2px solid var(--surface);
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+
+    /* KPI Telemetry Strip */
+    .telemetry-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      padding: 16px 18px;
+      background: var(--bg);
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .kpi-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .kpi-value.is-accent {
+      color: var(--brand-color);
+    }
+
+    .kpi-value.is-warn {
+      color: var(--warn);
+    }
+
+    .kpi-value.is-ok {
+      color: var(--ok);
+    }
+
+    .kpi-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .workbench {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pane {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+
+    .pane-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .pane-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .dropzone-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .dropzone-wrap.is-dragover {
+      background: var(--brand-tint);
+    }
+
+    .srt-input {
+      flex: 1;
+      width: 100%;
+      min-height: 300px;
+      padding: 14px;
+      background: var(--surface);
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      font-size: 13px;
+      line-height: 1.55;
+      border-radius: 4px 4px 0 0;
+      resize: vertical;
+    }
+
+    .srt-input:focus {
+      outline: 2px solid var(--brand-color);
+      outline-offset: -2px;
+    }
+
+    .drop-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--surface-subtle);
+    }
+
+    .cue-preview-list {
+      flex: 1;
+      max-height: 345px;
+      overflow-y: auto;
+      border-radius: 4px;
+      background: var(--bg);
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cue-row {
+      display: grid;
+      grid-template-columns: 40px 172px 1fr auto;
+      gap: 12px;
+      align-items: baseline;
+      padding: 10px 14px;
+      background: var(--surface);
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .cue-row.has-warn {
+      background: var(--warn-tint);
+    }
+
+    .cue-idx {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-size: 13px;
+    }
+
+    code.cue-tc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cue-frames {
+      display: block;
+      color: var(--brand-color);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .cue-text {
+      color: var(--ink);
+      white-space: pre-line;
+      font-weight: 500;
+    }
+
+    .cue-meta {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .cue-meta .flag-warn {
+      color: var(--warn);
+      font-weight: 700;
+      display: block;
+    }
+
+    .cue-meta .flag-fix {
+      color: var(--ok);
+      display: block;
+    }
+
+    .export-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: var(--bg);
+      border-radius: 4px;
+    }
+
+    .export-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status-msg {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Scope Bridge */
+    .scope-bridge {
+      margin-top: 28px;
+      background: var(--ink);
+      color: var(--surface);
+      border-radius: 6px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .scope-bridge h2 {
+      margin: 0 0 12px;
+      font-size: clamp(22px, 2.4vw, 28px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--surface);
+    }
+
+    .scope-bridge p {
+      margin: 0 0 14px;
+      color: #d4d8df;
+      font-size: 16px;
+      max-width: 64ch;
+    }
+
+    .scope-points {
+      margin: 0;
+      padding-left: 18px;
+      color: #eef0f4;
+      font-size: 16px;
+    }
+
+    .scope-points li {
+      margin-bottom: 8px;
+    }
+
+    .scope-cta-box {
+      background: #1e2228;
+      padding: 22px;
+      border-radius: 4px;
+    }
+
+    .price-headline {
+      font-size: 28px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+      color: #ffffff;
+      margin: 0 0 6px;
+    }
+
+    .price-headline span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #c5cbd3;
+    }
+
+    .scope-cta-box p {
+      font-size: 16px;
+      color: #d4d8df;
+      margin: 0 0 16px;
+    }
+
+    .bridge-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-bridge-main {
+      background: #ffffff;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 11px 16px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn-bridge-main:hover {
+      background: var(--brand-tint);
+      color: var(--brand-color);
+    }
+
+    .btn-bridge-sub {
+      background: #2c313a;
+      color: #f1f2f4;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn-bridge-sub:hover {
+      background: #3a404c;
+      color: #ffffff;
+    }
+
+    /* Content Sections */
+    .page-section {
+      margin-top: 128px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 32px;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(22px, 2.5vw, 28px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* Specs Ledger */
+    .specs-ledger {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 270px 1fr 200px;
+      gap: 28px;
+      padding: 22px 26px;
+      background: var(--surface);
+      border-radius: 6px;
+      align-items: baseline;
+    }
+
+    .spec-row h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .spec-row p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .spec-metric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--brand-color);
+    }
+
+    /* Responsive Comparison Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 84vh);
+      container-type: inline-size;
+      background: var(--surface);
+      border-radius: 6px;
+    }
+
+    table.comp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 16px;
+      --label-2: "Multilingual SRT PRO";
+      --label-3: "Descript";
+      --label-4: "Premiere Native";
+      --label-5: "WhisperX (CLI)";
+      --label-6: "TimedSubs";
+      --label-7: "Vrew";
+    }
+
+    .comp-table caption {
+      text-align: left;
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink);
+      background: var(--surface-subtle);
+    }
+
+    .comp-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+    }
+
+    .comp-table th,
+    .comp-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    .comp-table th:last-child,
+    .comp-table td:last-child {
+      border-right: 0;
+    }
+
+    .comp-table thead th {
+      background: var(--surface-subtle);
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .comp-table thead th.col-our,
+    .comp-table tbody td.col-our {
+      background: var(--brand-tint);
+    }
+
+    .comp-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: var(--surface);
+      font-weight: 700;
+      min-width: 170px;
+    }
+
+    @container (width < 680px) {
+      .comp-table,
+      .comp-table caption,
+      .comp-table thead,
+      .comp-table tbody,
+      .comp-table tr,
+      .comp-table th,
+      .comp-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .comp-table thead {
+        display: none;
+      }
+
+      .comp-table tr {
+        margin: 12px 0;
+        background: var(--bg);
+        border-radius: 4px;
+        width: auto;
+      }
+
+      .comp-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        background: var(--surface-subtle);
+        border-right: 0;
+      }
+
+      .comp-table td {
+        border-right: 0;
+      }
+
+      .comp-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; }
+      .comp-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; }
+      .comp-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; }
+      .comp-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; }
+      .comp-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; }
+      .comp-table td:nth-child(7)::before { content: var(--label-7) ": "; font-weight: 700; }
+    }
+
+    /* Samples + Quickstart Split */
+    .split-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .code-panel {
+      background: var(--surface);
+      padding: 26px;
+      border-radius: 6px;
+    }
+
+    .code-panel h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .code-panel p {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    pre {
+      margin: 0 0 14px;
+      padding: 15px 16px;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    pre:last-child {
+      margin-bottom: 0;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    /* Pricing & Revision Policy */
+    .pricing-layout {
+      background: var(--surface);
+      border-radius: 6px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .pricing-figure {
+      font-size: 44px;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.05;
+      margin: 0 0 8px;
+    }
+
+    .pricing-figure small {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .revision-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .revision-list li {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 36px;
+      background: var(--surface);
+      padding: 32px;
+      border-radius: 6px;
+    }
+
+    .faq-entry h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .faq-entry p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 128px;
+      padding: 36px 32px;
+      background: var(--surface);
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+    }
+
+    .footer-wordmark {
+      font-size: 28px;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-meta {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    /* Staggered Entrance Motion with prefers-reduced-motion fallback */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1), transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .workbench,
+      .scope-bridge,
+      .section-head,
+      .spec-row,
+      .split-columns,
+      .pricing-layout,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .controls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .telemetry-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .spec-metric {
+        text-align: left;
+      }
+      .page-section {
+        margin-top: 72px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        padding: 0 16px 64px;
+      }
+      .studio-sheet,
+      .scope-bridge,
+      .pricing-layout,
+      .faq-grid,
+      .code-panel {
+        padding: 20px;
+      }
+      .controls-grid {
+        grid-template-columns: 1fr;
+      }
+      .cue-row {
+        grid-template-columns: 36px 1fr;
+      }
+      .cue-text,
+      .cue-meta {
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="topbar" aria-label="Primary">
+      <a class="brand" href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="#121417" stroke-width="2"/>
+          <line x1="7" y1="4" x2="7" y2="8" stroke="#1d5fbf" stroke-width="2"/>
+          <line x1="12" y1="4" x2="12" y2="9" stroke="#1d5fbf" stroke-width="2"/>
+          <line x1="17" y1="4" x2="17" y2="8" stroke="#1d5fbf" stroke-width="2"/>
+          <line x1="6" y1="14" x2="18" y2="14" stroke="#121417" stroke-width="2"/>
+        </svg>
+        <span>Multilingual SRT PRO</span>
+      </a>
+      <div class="nav-links">
+        <a href="#studio">Free Studio</a>
+        <a href="#specs">Specs</a>
+        <a href="#comparison">Benchmarks</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://github.com/bbllhenhj/multilingual-srt-pro-docs">GitHub</a>
+        <a href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/" lang="zh-CN">中文站</a>
+        <a class="btn-nav" href="#pricing">Get Full AI Skill</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <h1>Frame-exact subtitles, zero typos.</h1>
+        <p class="lead">
+          Convert existing 16:9 SRTs to 9:16 vertical captions, fix 23.976/29.97fps drift, and export Final Cut Pro <code>.fcpxml</code> free in your browser below, or run <strong>Multilingual SRT PRO</strong> locally in Claude Code &amp; Cursor to force-align 8,000-word scripts to raw 4K video.
+        </p>
+      </div>
+      <div class="hero-aside">
+        <p><strong>100% Client-Side Privacy:</strong> Files dropped into the studio below run in browser memory and are never uploaded.</p>
+        <p><strong>Entity Note:</strong> Multilingual SRT PRO is a local AI Agent Skill (Alipay AIPay PAYATHON 2026), unaffiliated with Videosrt Pro.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Interactive Browser Studio (Route B Lead Magnet) -->
+      <section id="studio" class="studio-sheet" aria-labelledby="studio-heading">
+        <div class="studio-header">
+          <h2 id="studio-heading">SRT Reframe &amp; Frame Studio</h2>
+          <div class="preset-bar">
+            <span class="preset-label">Load real test case:</span>
+            <button type="button" class="btn-preset" data-preset="en_review">16:9 English Review (1-Frame Gap)</button>
+            <button type="button" class="btn-preset" data-preset="ntsc_drift">23.976 &rarr; 24fps Drifted Reel</button>
+            <button type="button" class="btn-preset" data-preset="cjk_drama">9:16 Short-Drama Bilingual</button>
+          </div>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-field">
+            <label for="layout-mode">Reframe Mode</label>
+            <select id="layout-mode">
+              <option value="portrait" selected>16:9 Two-Line &rarr; 9:16 Single-Line Shorts/Reels</option>
+              <option value="keep">Keep Original Lines (Snap Frame Grid Only)</option>
+            </select>
+            <span class="field-hint" id="layout-hint">Splits cues cleanly without trailing prepositions.</span>
+          </div>
+
+          <div class="control-field">
+            <label for="max-chars">Max Chars per 9:16 Line</label>
+            <input type="number" id="max-chars" min="8" max="60" value="28" aria-describedby="chars-hint">
+            <span class="field-hint" id="chars-hint">Recommended: 26–30 Latin, 12–14 CJK.</span>
+          </div>
+
+          <div class="control-field">
+            <label for="target-fps">Target NLE Timeline FPS</label>
+            <select id="target-fps">
+              <option value="23.976">23.976 fps (24000/1001 NTSC Film)</option>
+              <option value="24" selected>24 fps (True Cinema)</option>
+              <option value="25">25 fps (PAL Broadcast)</option>
+              <option value="29.97">29.97 fps (30000/1001 NTSC)</option>
+              <option value="30">30 fps (Web / YouTube)</option>
+              <option value="48">48 fps (HFR)</option>
+              <option value="50">50 fps (PAL High-Motion)</option>
+              <option value="59.94">59.94 fps (60000/1001 Broadcast)</option>
+              <option value="60">60 fps (Shorts / Reels / TikTok)</option>
+              <option value="120">120 fps (High-Speed)</option>
+            </select>
+            <span class="field-hint">Quantizes every in/out to exact frame boundaries.</span>
+          </div>
+
+          <div class="control-field">
+            <label for="drift-mode">Frame-Rate Drift Scaling</label>
+            <select id="drift-mode">
+              <option value="none" selected>No Scaling (Snap Timestamps in Place)</option>
+              <option value="23.976_to_24">Fix 23.976 &rarr; 24.000 fps Drift (&times;0.999)</option>
+              <option value="24_to_23.976">Fix 24.000 &rarr; 23.976 fps Drift (&times;1.001)</option>
+              <option value="29.97_to_30">Fix 29.97 &rarr; 30.000 fps Drift (&times;0.999)</option>
+              <option value="30_to_29.97">Fix 30.000 &rarr; 29.97 fps Drift (&times;1.001)</option>
+              <option value="25_to_24">PAL 25 &rarr; 24 fps Pull-Down (&times;1.0417)</option>
+            </select>
+            <span class="field-hint">Fixes cumulative 3.6 sec/hour NTSC pull-up sync loss.</span>
+          </div>
+        </div>
+
+        <div class="toggles-row">
+          <div class="check-group">
+            <label class="check-label" for="chk-close-gaps">
+              <input type="checkbox" id="chk-close-gaps" class="visually-hidden" checked>
+              <span>Close 1–2 frame micro-gaps &amp; prevent overlaps</span>
+            </label>
+            <label class="check-label" for="chk-anti-orphan">
+              <input type="checkbox" id="chk-anti-orphan" class="visually-hidden" checked>
+              <span>Keep prepositions &amp; articles attached (EN/DE/FR/ES)</span>
+            </label>
+            <label class="check-label" for="chk-strip-hi">
+              <input type="checkbox" id="chk-strip-hi" class="visually-hidden">
+              <span>Strip [SFX] / HTML formatting tags</span>
+            </label>
+          </div>
+          <div>
+            <label class="btn-secondary" for="srt-file-input">
+              Drop or Choose .srt File
+            </label>
+            <input type="file" id="srt-file-input" accept=".srt,.txt" hidden>
+          </div>
+        </div>
+
+        <div class="telemetry-strip" role="status" aria-live="polite">
+          <div class="kpi-cell">
+            <span class="kpi-value is-accent" id="kpi-cues">0</span>
+            <span class="kpi-label">Output Cues</span>
+            <span class="kpi-sub" id="kpi-cues-sub">From 0 source blocks</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-value" id="kpi-snapped">0</span>
+            <span class="kpi-label">Sub-Frame Offsets Snapped</span>
+            <span class="kpi-sub" id="kpi-fps-period">41.67 ms / frame @ 24fps</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-value is-ok" id="kpi-gaps">0</span>
+            <span class="kpi-label">1-Frame Gaps / Overlaps Healed</span>
+            <span class="kpi-sub">Zero Premiere/Resolve black flashes</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-value" id="kpi-orphans">0</span>
+            <span class="kpi-label">Orphan Prepositions Prevented</span>
+            <span class="kpi-sub">Articles bound to nouns</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-value" id="kpi-cps">0</span>
+            <span class="kpi-label">Netflix Speed QC (&gt;20 CPS)</span>
+            <span class="kpi-sub" id="kpi-cps-sub">All cues within broadcast speed</span>
+          </div>
+        </div>
+
+        <div class="workbench" data-ui>
+          <div class="pane">
+            <div class="pane-top">
+              <label class="pane-title" for="srt-source">Source .SRT Input (Drag &amp; Drop anywhere here)</label>
+              <span class="field-hint">UTF-8 .srt</span>
+            </div>
+            <div class="dropzone-wrap" id="dropzone">
+              <textarea id="srt-source" class="srt-input" spellcheck="false" aria-describedby="drop-note"></textarea>
+              <div class="drop-footer" id="drop-note">
+                <span>Edits update the frame-quantized timeline immediately.</span>
+                <span id="input-char-count">0 chars</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pane">
+            <div class="pane-top">
+              <span class="pane-title">Quantized NLE Output &amp; Exact Frame Index Inspector</span>
+              <span class="field-hint" id="inspector-badge">24 fps · 9:16 Single-Line</span>
+            </div>
+            <div class="cue-preview-list" id="cue-list" tabindex="0" aria-label="Quantized subtitle cues preview">
+              <!-- Populated by client JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="export-bar">
+          <div class="export-actions">
+            <button type="button" class="btn-accent" id="btn-dl-srt">Download Clean .SRT</button>
+            <button type="button" class="btn-primary" id="btn-dl-fcpxml">Download Final Cut Pro .FCPXML (v1.10)</button>
+            <button type="button" class="btn-secondary" id="btn-copy-srt">Copy .SRT to Clipboard</button>
+          </div>
+          <span class="status-msg" id="export-status">Ready. FCPXML exports connected Basic Titles on Lane 1 with rational frame durations.</span>
+        </div>
+      </section>
+
+      <!-- Open-Utility -> Paid Pro AI Skill Bridge -->
+      <aside class="scope-bridge reveal-item" aria-labelledby="bridge-heading">
+        <div>
+          <h2 id="bridge-heading">Starting from raw video + script?</h2>
+          <p>
+            The free Browser Studio above splits timing proportionally from an <em>existing</em> SRT. When starting from a raw 4K edit or a re-recorded voiceover, proportional math cannot hear real actor pauses. That is what the full <strong>Multilingual SRT PRO</strong> local AI Agent Skill solves:
+          </p>
+          <ul class="scope-points">
+            <li><strong>100% Zero Homophone Typos:</strong> Force-aligns your approved 8,000+ word script directly against local audio waveforms (bypasses CapCut's 5,000-character limit and Whisper hallucinations).</li>
+            <li><strong>Acoustic Breath Pauses + 27 Locales:</strong> Balances lines using real speech silences and native grammar rules (0.77 English line-width ratio; zero German orphan words; Arabic RTL &amp; SEA support).</li>
+            <li><strong>Zero Cloud Uploads:</strong> Decodes gigabyte-scale ProRes/MP4 masters locally inside Claude Code, Cursor, or Antigravity on macOS &amp; Windows.</li>
+          </ul>
+        </div>
+        <div class="scope-cta-box">
+          <p class="price-headline">0.50 CNY <span>(&approx; $0.07 USD / run)</span></p>
+          <p>Pay-per-use via Alipay AIPay Machine Pay. <strong>Unlimited free revisions for 24h</strong> on the same script OR same audio.</p>
+          <div class="bridge-buttons">
+            <a class="btn-bridge-main" href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef" rel="noopener">Download Skill Pack on Alipay AIPay &rarr;</a>
+            <a class="btn-bridge-sub" href="https://github.com/bbllhenhj/multilingual-srt-pro-docs/issues/new?title=International+Card+%2F+Stripe+Batch+Pass+Request&amp;body=Hi+team%2C+I+do+not+have+an+Alipay+account+and+would+like+to+be+notified+when+international+card+or+batch+token+checkout+opens+for+Multilingual+SRT+PRO." rel="noopener">No Alipay? Join Global Card Waitlist on GitHub</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Section 1: Verified Engineering Specifications -->
+      <section id="specs" class="page-section" aria-labelledby="specs-heading">
+        <div class="section-head reveal-item">
+          <h2 id="specs-heading">Built for NLE timelines.</h2>
+          <p>
+            Every stage of Multilingual SRT PRO replaces open-vocabulary ASR guessing with deterministic alignment against your locked editorial script and NLE frame clock.
+          </p>
+        </div>
+
+        <div class="specs-ledger">
+          <div class="spec-row reveal-item">
+            <h3>Script-Locked Forced Alignment</h3>
+            <p>Maps phonemes directly to your approved narration text instead of transcribing from scratch. Technical acronyms, medical terms, financial figures, and character names stay 100% verbatim.</p>
+            <div class="spec-metric">0% Homophone Typos</div>
+          </div>
+          <div class="spec-row reveal-item">
+            <h3>27-Locale Syntax &amp; Breath Solver</h3>
+            <p>Jointly optimizes acoustic breath pauses and linguistic constraints across EN, ZH, JA, KO, DE, FR, ES, PT, IT, RU, AR (RTL), VI, TH, ID, and 13 more locales to prevent stranded prepositions and split compound nouns.</p>
+            <div class="spec-metric">0.77 EN Width Ratio</div>
+          </div>
+          <div class="spec-row reveal-item">
+            <h3>10 Exact NLE Frame Grids</h3>
+            <p>Quantizes every timestamp to 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, or 120 fps integer boundaries (e.g., 24fps Frame 6 = <code>00:00,250</code>, Frame 53 = <code>00:02,208</code>, Frame 132 = <code>00:05,500</code>).</p>
+            <div class="spec-metric">23.976 – 120 fps</div>
+          </div>
+          <div class="spec-row reveal-item">
+            <h3>Instant 16:9 &harr; 9:16 Re-Flow</h3>
+            <p>Reuses word-level acoustic anchors to export both 16:9 two-line cinema/YouTube captions and 9:16 single-line vertical captions (&le;12–14 CJK chars / &le;28 EN chars) without re-decoding audio.</p>
+            <div class="spec-metric">24h Free Re-Layout</div>
+          </div>
+          <div class="spec-row reveal-item">
+            <h3>100% On-Device Media Decoding</h3>
+            <p>Runs locally on macOS and Windows with zero manual CUDA/PyTorch environment wrangling. Embargoed client commercials and unannounced product films never touch external cloud storage.</p>
+            <div class="spec-metric">0 Bytes Uploaded</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Quantitative Benchmark Comparison -->
+      <section id="comparison" class="page-section" aria-labelledby="comp-heading">
+        <div class="section-head reveal-item">
+          <h2 id="comp-heading">2026 tool benchmark matrix.</h2>
+          <p>
+            Use Whisper or Descript when editing unscripted interviews without a script. Use Multilingual SRT PRO when you already have a locked script and need zero typos, frame-exact NLE cuts, or 27-language delivery.
+          </p>
+        </div>
+
+        <div tabindex="0" role="region" aria-labelledby="comparison-table-caption" class="table-wrapper reveal-item">
+          <table class="comp-table">
+            <caption id="comparison-table-caption">Post-Production Subtitle Alignment &amp; Formatting Matrix (Nov 2026)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Dimension</th>
+                <th scope="col" class="col-our">Multilingual SRT PRO</th>
+                <th scope="col">Descript</th>
+                <th scope="col">Premiere Pro Native</th>
+                <th scope="col">WhisperX (CLI)</th>
+                <th scope="col">TimedSubs</th>
+                <th scope="col">Vrew</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Core Mechanism</th>
+                <td class="col-our"><strong>On-device script forced alignment</strong> + breath/syntax solver</td>
+                <td>Cloud ASR + script sync</td>
+                <td>Speech-to-text + Import Corrected Transcript</td>
+                <td>Local ASR + wav2vec2 phoneme alignment</td>
+                <td>Cloud audio-script alignment</td>
+                <td>Cloud ASR + script import (台本読み込み)</td>
+              </tr>
+              <tr>
+                <th scope="row">Script Fidelity</th>
+                <td class="col-our"><strong>100% locked to approved script (zero homophone errors)</strong></td>
+                <td>Occasional drift on technical jargon</td>
+                <td>Can lose sync when lines are added/edited</td>
+                <td>ASR hallucinations unless manually patched</td>
+                <td>Preserves input script</td>
+                <td>Drifts on fast narration or BGM</td>
+              </tr>
+              <tr>
+                <th scope="row">NLE Integer-Frame Snap</th>
+                <td class="col-our"><strong>10 exact frame rates (23.976–120 fps), zero 1-frame flash</strong></td>
+                <td>Arbitrary milliseconds</td>
+                <td>Sequence timebase only; SRT export rounds ms</td>
+                <td>Unquantized float milliseconds</td>
+                <td>Standard milliseconds</td>
+                <td>Arbitrary milliseconds (prone to 29.97fps flash)</td>
+              </tr>
+              <tr>
+                <th scope="row">Multilingual Line Breaking</th>
+                <td class="col-our"><strong>27 locales grammar rules (0.77 EN ratio, 0 DE orphans)</strong></td>
+                <td>Character-count wrapping</td>
+                <td>Fixed character limit wrapping</td>
+                <td>Acoustic chunking (often ultra-long lines)</td>
+                <td>Static line breaks</td>
+                <td>Optimized for KO/JA; basic Latin wrapping</td>
+              </tr>
+              <tr>
+                <th scope="row">Media Privacy</th>
+                <td class="col-our"><strong>100% local decoding (zero video upload)</strong></td>
+                <td>Mandatory cloud upload</td>
+                <td>Local (requires full Creative Cloud)</td>
+                <td>100% local (requires Python &amp; CUDA setup)</td>
+                <td>Mandatory cloud upload</td>
+                <td>Cloud audio upload required</td>
+              </tr>
+              <tr>
+                <th scope="row">Pricing &amp; Revisions</th>
+                <td class="col-our"><strong>0.50 CNY (~$0.07) / run · 24h free edits &amp; re-layouts</strong></td>
+                <td>$16 – $24 / month subscription</td>
+                <td>$22.99 / month subscription</td>
+                <td>Free open-source (self-maintained GPU)</td>
+                <td>Monthly subscription tiers</td>
+                <td>Free tier + ~$8–$20 / mo subscription</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3: Frame-Verified Samples & Agent Quickstart -->
+      <section id="quickstart" class="page-section" aria-labelledby="quickstart-heading">
+        <div class="section-head reveal-item">
+          <h2 id="quickstart-heading">Frame math &amp; quickstart.</h2>
+          <p>
+            Inspect our open benchmark <code>.srt</code> samples and zero-dependency Python frame-grid verifier in the repository, or mount the full Skill inside Claude Code, Cursor, or Antigravity.
+          </p>
+        </div>
+
+        <div class="split-columns">
+          <div class="code-panel reveal-item">
+            <h3>Verified 30fps Benchmark Output</h3>
+            <p>Every timestamp lands cleanly on exact integer frames with balanced 0.77 visual width:</p>
+            <pre><code>1
+00:00:00,267 --&gt; 00:00:02,200
+Built on frame-accurate alignment,
+every spoken phrase locks to your script.
+
+2
+00:00:02,200 --&gt; 00:00:05,500
+Natural breath pauses guide breaks
+while keeping prepositions with their nouns.</code></pre>
+            <p style="margin-bottom:0;">
+              Audit any SRT offline with <a href="https://github.com/bbllhenhj/multilingual-srt-pro-docs/blob/main/scripts/verify_srt_frame_grid.py"><code>scripts/verify_srt_frame_grid.py</code></a>.
+            </p>
+          </div>
+
+          <div class="code-panel reveal-item">
+            <h3>3-Step AI Agent Setup (macOS &amp; Windows)</h3>
+            <p>1. Install the official Alipay Agent Payment bridge once:</p>
+            <pre><code>npx -y @alipay/agent-payment@latest install</code></pre>
+            <p>2. Download the Skill package from the <a href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef" rel="noopener">official Alipay AIPay work page</a> into your <code>skills/</code> folder, then prompt your agent:</p>
+            <pre><code>Use Multilingual SRT PRO to force-align ./master_edit.mp4 with ./approved_script_en.txt.
+Export 23.976fps 16:9 two-line SRT and 60fps 9:16 single-line vertical SRT (&lt;=28 chars).</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Transparent Micro-Pricing & 24-Hour Free Revision Guarantee -->
+      <section id="pricing" class="page-section" aria-labelledby="pricing-heading">
+        <div class="section-head reveal-item">
+          <h2 id="pricing-heading">Micro-pricing &amp; 24h revisions.</h2>
+          <p>
+            Post-production always involves director notes, voiceover pickups, and multi-platform aspect ratios. You never pay twice for iterative tweaks on the same cut.
+          </p>
+        </div>
+
+        <div class="pricing-layout reveal-item">
+          <div>
+            <p class="pricing-figure">0.50 CNY <small>&approx; $0.07 USD / task</small></p>
+            <p style="color: var(--muted); margin: 0 0 20px;">
+              Nov 2026 promotional baseline via Alipay AIPay Machine Pay (live rate displayed on the official work page). Zero monthly subscriptions or seat minimums.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a class="btn-accent" href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef" rel="noopener">Open Official Alipay AIPay Work Page</a>
+              <a class="btn-secondary" href="https://github.com/bbllhenhj/multilingual-srt-pro-docs/issues/new?title=International+Card+%2F+Stripe+Batch+Pass+Request" rel="noopener">International Card Waitlist</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin: 0 0 12px; font-size: 18px;">Included: 24-Hour Free Unlimited Revisions (Same Text OR Same Audio)</h3>
+            <ol class="revision-list">
+              <li><strong>Same Audio + Updated Script (Free within 24h):</strong> Fix client copy tweaks, polish translated lines, or adjust capitalization/punctuation on the same audio file at zero extra cost.</li>
+              <li><strong>Same Script + Re-Recorded Audio (Free within 24h):</strong> Swap in a new voiceover take, faster read, or alternate voice actor while keeping the locked script; re-alignment is free within 24 hours.</li>
+              <li><strong>Unlimited Aspect-Ratio &amp; FPS Exports (Free within 24h):</strong> Switch freely between <code>16:9</code> two-line and <code>9:16</code> single-line vertical layouts, or re-export across <code>23.976</code>, <code>24</code>, <code>29.97</code>, and <code>60 fps</code>.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Technical FAQ -->
+      <section id="faq" class="page-section" aria-labelledby="faq-heading">
+        <div class="section-head reveal-item">
+          <h2 id="faq-heading">Technical FAQ.</h2>
+          <p>Direct answers on NTSC drop-frame rounding, browser vs. local alignment, and cross-border checkout.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-entry reveal-item">
+            <h3>Why do SRT subtitles flash 1-frame black gaps in Premiere Pro &amp; DaVinci Resolve?</h3>
+            <p>Most ASR exporters write arbitrary milliseconds (e.g., <code>00:00:02,213</code>) that sit mid-frame. At 24fps (<code>41.67ms</code>) or 23.976fps (<code>41.71ms</code>), independent rounding of in and out points leaves 1-frame holes or overlaps. Quantizing to exact integer frames fixes this permanently.</p>
+          </div>
+          <div class="faq-entry reveal-item">
+            <h3>When should I use the free Browser Studio vs. the paid AI Agent Skill?</h3>
+            <p>Use the free Browser Studio on this page whenever you already have a synced <code>.srt</code> and need 9:16 vertical splitting, 23.976&harr;24fps drift repair, or Final Cut Pro <code>.fcpxml</code> export. Use the full AI Skill when aligning raw video/audio against a plain script from scratch.</p>
+          </div>
+          <div class="faq-entry reveal-item">
+            <h3>How do overseas editors pay at checkout?</h3>
+            <p>Bilingual creators, overseas Chinese teams, and localization studios with Alipay can scan and settle <code>0.50 CNY</code> (~$0.07) in two seconds. Creators without Alipay can use the browser studio free forever and join our GitHub waitlist for international card token packs.</p>
+          </div>
+          <div class="faq-entry reveal-item">
+            <h3>Is Multilingual SRT PRO related to Videosrt Pro?</h3>
+            <p>No. Videosrt Pro is an independent standalone GUI application focused on open ASR transcription. Multilingual SRT PRO is a local <code>SKILL.md</code> AI Agent Skill built specifically for script-locked forced alignment and NLE integer-frame engineering.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal-item">
+      <div class="footer-wordmark">Multilingual SRT PRO</div>
+      <div class="footer-meta">
+        Official Skill Distribution: <a href="https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef" rel="noopener">Alipay AIPay Community</a> ·
+        Benchmarks &amp; Verifier: <a href="https://github.com/bbllhenhj/multilingual-srt-pro-docs">GitHub Repository</a> ·
+        Machine Context: <a href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/llms.txt">llms.txt</a> ·
+        <a href="https://bbllhenhj.github.io/multilingual-srt-pro-docs/" lang="zh-CN">简体中文文档</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const FPS_TABLE = {
+        "23.976": { num: 24000, den: 1001, fcpxName: "FFVideoFormat1080p2398", tcFormat: "NDF" },
+        "24":     { num: 24,    den: 1,    fcpxName: "FFVideoFormat1080p24",   tcFormat: "NDF" },
+        "25":     { num: 25,    den: 1,    fcpxName: "FFVideoFormat1080p25",   tcFormat: "NDF" },
+        "29.97":  { num: 30000, den: 1001, fcpxName: "FFVideoFormat1080p2997", tcFormat: "DF"  },
+        "30":     { num: 30,    den: 1,    fcpxName: "FFVideoFormat1080p30",   tcFormat: "NDF" },
+        "48":     { num: 48,    den: 1,    fcpxName: "FFVideoFormat1080p48",   tcFormat: "NDF" },
+        "50":     { num: 50,    den: 1,    fcpxName: "FFVideoFormat1080p50",   tcFormat: "NDF" },
+        "59.94":  { num: 60000, den: 1001, fcpxName: "FFVideoFormat1080p5994", tcFormat: "DF"  },
+        "60":     { num: 60,    den: 1,    fcpxName: "FFVideoFormat1080p60",   tcFormat: "NDF" },
+        "120":    { num: 120,   den: 1,    fcpxName: "FFVideoFormat1080p120",  tcFormat: "NDF" }
+      };
+
+      const DRIFT_FACTORS = {
+        "none": 1.0,
+        "23.976_to_24": 1000 / 1001,
+        "24_to_23.976": 1001 / 1000,
+        "29.97_to_30": 1000 / 1001,
+        "30_to_29.97": 1001 / 1000,
+        "25_to_24": 25 / 24
+      };
+
+      const NO_END_WORDS = new Set([
+        "a", "an", "the", "in", "on", "at", "to", "for", "of", "with", "by", "from", "into", "onto",
+        "as", "or", "and", "but", "via", "per", "than", "that", "which", "who",
+        "der", "die", "das", "den", "dem", "des", "ein", "eine", "einen", "einem", "mit", "von", "zu", "für", "auf", "im", "am", "und",
+        "le", "la", "les", "un", "une", "de", "du", "des", "dans", "sur", "avec", "pour", "et",
+        "el", "los", "las", "un", "una", "en", "con", "por", "para", "del", "al", "y"
+      ]);
+
+      const PRESETS = {
+        en_review: {
+          fps: "24",
+          layout: "portrait",
+          maxChars: 28,
+          drift: "none",
+          srt: [
+            "1",
+            "00:00:00,263 --> 00:00:05,826",
+            "Standard cloud transcribers split sentences right after a",
+            "preposition and leave mid-frame timestamps.",
+            "",
+            "2",
+            "00:00:05,882 --> 00:00:11,492",
+            "Notice the 1-frame flash gap before this cue on a",
+            "24fps Premiere Pro or DaVinci Resolve timeline.",
+            "",
+            "3",
+            "00:00:11,538 --> 00:00:13,210",
+            "Fast legal disclaimers exceeding twenty chars per second are flagged immediately!"
+          ].join("\n")
+        },
+        ntsc_drift: {
+          fps: "24",
+          layout: "keep",
+          maxChars: 38,
+          drift: "23.976_to_24",
+          srt: [
+            "1",
+            "00:15:00,899 --> 00:15:05,902",
+            "Fifteen minutes into a 23.976fps master dropped onto a 24.000fps timeline,",
+            "dialogue captions already lag nearly a full second behind the actor's lips.",
+            "",
+            "2",
+            "00:48:12,888 --> 00:48:18,058",
+            "At minute forty-eight, the 1001/1000 NTSC pull-down drift reaches +2.89 seconds.",
+            "Scaling by 1000/1001 and snapping to 24fps frames restores dead-on sync."
+          ].join("\n")
+        },
+        cjk_drama: {
+          fps: "60",
+          layout: "portrait",
+          maxChars: 14,
+          drift: "none",
+          srt: [
+            "1",
+            "00:00:00,244 --> 00:00:04,194",
+            "算力中心的液冷集群已完成全负荷压力测试，单机柜功率密度提升三倍",
+            "",
+            "2",
+            "00:00:04,225 --> 00:00:08,996",
+            "Every vertical short-drama episode needs punchy single-line hooks for Reels and TikTok."
+          ].join("\n")
+        }
+      };
+
+      const els = {
+        source: document.getElementById("srt-source"),
+        dropzone: document.getElementById("dropzone"),
+        fileInput: document.getElementById("srt-file-input"),
+        layoutMode: document.getElementById("layout-mode"),
+        maxChars: document.getElementById("max-chars"),
+        targetFps: document.getElementById("target-fps"),
+        driftMode: document.getElementById("drift-mode"),
+        chkGaps: document.getElementById("chk-close-gaps"),
+        chkOrphan: document.getElementById("chk-anti-orphan"),
+        chkStrip: document.getElementById("chk-strip-hi"),
+        cueList: document.getElementById("cue-list"),
+        kpiCues: document.getElementById("kpi-cues"),
+        kpiCuesSub: document.getElementById("kpi-cues-sub"),
+        kpiSnapped: document.getElementById("kpi-snapped"),
+        kpiFpsPeriod: document.getElementById("kpi-fps-period"),
+        kpiGaps: document.getElementById("kpi-gaps"),
+        kpiOrphans: document.getElementById("kpi-orphans"),
+        kpiCps: document.getElementById("kpi-cps"),
+        kpiCpsSub: document.getElementById("kpi-cps-sub"),
+        charCount: document.getElementById("input-char-count"),
+        inspectorBadge: document.getElementById("inspector-badge"),
+        status: document.getElementById("export-status"),
+        btnDlSrt: document.getElementById("btn-dl-srt"),
+        btnDlFcpxml: document.getElementById("btn-dl-fcpxml"),
+        btnCopySrt: document.getElementById("btn-copy-srt")
+      };
+
+      let latestResult = { cues: [], srtText: "", fcpxmlText: "" };
+
+      function parseTimeToSec(tc) {
+        const m = tc.trim().match(/^(\d{1,2}):(\d{2}):(\d{2})[,.](\d{1,3})$/);
+        if (!m) return 0;
+        const ms = m[4].padEnd(3, "0");
+        return Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]) + Number(ms) / 1000;
+      }
+
+      function formatSecToSrt(sec) {
+        const totalMs = Math.max(0, Math.round(sec * 1000));
+        const h = Math.floor(totalMs / 3600000);
+        const rem1 = totalMs % 3600000;
+        const m = Math.floor(rem1 / 60000);
+        const rem2 = rem1 % 60000;
+        const s = Math.floor(rem2 / 1000);
+        const ms = rem2 % 1000;
+        return (
+          String(h).padStart(2, "0") + ":" +
+          String(m).padStart(2, "0") + ":" +
+          String(s).padStart(2, "0") + "," +
+          String(ms).padStart(3, "0")
+        );
+      }
+
+      function parseSrtBlocks(raw, stripHi) {
+        if (!raw || !raw.trim()) return [];
+        const normalized = raw.replace(/\r\n/g, "\n").trim();
+        const rawBlocks = normalized.split(/\n\s*\n/);
+        const parsed = [];
+        for (const block of rawBlocks) {
+          const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+          if (lines.length < 2) continue;
+          const tcIdx = lines[0].includes("-->") ? 0 : 1;
+          if (!lines[tcIdx] || !lines[tcIdx].includes("-->")) continue;
+          const [startStr, endStr] = lines[tcIdx].split("-->");
+          const startSec = parseTimeToSec(startStr);
+          const endSec = parseTimeToSec(endStr);
+          let textLines = lines.slice(tcIdx + 1);
+          if (stripHi) {
+            textLines = textLines
+              .map(l => l.replace(/<[^>]+>/g, "").replace(/\[[^\]]+\]|\([^)]+\)/g, "").trim())
+              .filter(Boolean);
+          }
+          if (!textLines.length || endSec <= startSec) continue;
+          parsed.push({ startSec, endSec, startRaw: startStr.trim(), endRaw: endStr.trim(), lines: textLines });
+        }
+        return parsed;
+      }
+
+      function hasCjk(str) {
+        return /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af]/.test(str);
+      }
+
+      function splitPortraitSegments(fullText, maxChars, protectOrphans) {
+        let orphanSaves = 0;
+        const clean = fullText.replace(/\s+/g, " ").trim();
+        if (!clean) return { segments: [], orphanSaves: 0 };
+
+        if (hasCjk(clean) && !/\s/.test(clean)) {
+          const clauses = clean.split(/(?<=[，。！？；：、,.!?;:])/).map(s => s.trim()).filter(Boolean);
+          const segments = [];
+          for (const cl of clauses) {
+            const stripped = cl.replace(/[，。！？、,.;:]+$/g, "");
+            if (!stripped) continue;
+            if (stripped.length <= maxChars) {
+              segments.push(stripped);
+            } else {
+              for (let i = 0; i < stripped.length; i += maxChars) {
+                segments.push(stripped.slice(i, i + maxChars));
+              }
+            }
+          }
+          return { segments: segments.length ? segments : [clean], orphanSaves: 0 };
+        }
+
+        const words = clean.split(" ");
+        const segments = [];
+        let current = [];
+        let currentLen = 0;
+
+        for (let i = 0; i < words.length; i++) {
+          const w = words[i];
+          const nextLen = current.length === 0 ? w.length : currentLen + 1 + w.length;
+          if (current.length > 0 && nextLen > maxChars) {
+            const lastWord = current[current.length - 1];
+            const bareLast = lastWord.toLowerCase().replace(/[^a-zäöüßéèêàùçñ]/g, "");
+            if (protectOrphans && current.length > 1 && NO_END_WORDS.has(bareLast)) {
+              const rescued = current.pop();
+              orphanSaves += 1;
+              segments.push(current.join(" "));
+              current = [rescued, w];
+              currentLen = rescued.length + 1 + w.length;
+            } else {
+              segments.push(current.join(" "));
+              current = [w];
+              currentLen = w.length;
+            }
+          } else {
+            current.push(w);
+            currentLen = nextLen;
+          }
+        }
+        if (current.length > 0) {
+          segments.push(current.join(" "));
+        }
+        return { segments, orphanSaves };
+      }
+
+      function xmlEscape(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&apos;");
+      }
+
+      function buildFcpxml(cues, fpsCfg, isPortrait) {
+        const width = isPortrait ? 1080 : 1920;
+        const height = isPortrait ? 1920 : 1080;
+        const lastFrame = cues.length ? cues[cues.length - 1].endFrame + fpsCfg.num : fpsCfg.num * 10;
+        const seqDur = `${lastFrame * fpsCfg.den}/${fpsCfg.num}s`;
+        const frameDur = `${fpsCfg.den}/${fpsCfg.num}s`;
+
+        const titleNodes = cues.map((cue, i) => {
+          const offset = `${cue.startFrame * fpsCfg.den}/${fpsCfg.num}s`;
+          const dur = `${Math.max(1, cue.endFrame - cue.startFrame) * fpsCfg.den}/${fpsCfg.num}s`;
+          const safeText = xmlEscape(cue.text);
+          const shortName = xmlEscape(cue.text.replace(/\n/g, " ").slice(0, 32));
+          return [
+            `            <title ref="r1" lane="1" name="${shortName}" offset="${offset}" duration="${dur}" start="3600s">`,
+            `              <text><text-style ref="ts${i + 1}">${safeText}</text-style></text>`,
+            `              <text-style-def id="ts${i + 1}">`,
+            `                <text-style font="Helvetica Neue" fontSize="${isPortrait ? 58 : 48}" fontColor="1 1 1 1" bold="1" alignment="center"/>`,
+            `              </text-style-def>`,
+            `            </title>`
+          ].join("\n");
+        }).join("\n");
+
+        return [
+          `<?xml version="1.0" encoding="UTF-8"?>`,
+          `<!DOCTYPE fcpxml>`,
+          `<fcpxml version="1.10">`,
+          `  <resources>`,
+          `    <format id="r0" name="${fpsCfg.fcpxName}" frameDuration="${frameDur}" width="${width}" height="${height}"/>`,
+          `    <effect id="r1" name="Basic Title" uid=".../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti"/>`,
+          `  </resources>`,
+          `  <library>`,
+          `    <event name="Multilingual SRT PRO Studio">`,
+          `      <project name="Frame-Quantized Captions">`,
+          `        <sequence format="r0" duration="${seqDur}" tcStart="0s" tcFormat="${fpsCfg.tcFormat}">`,
+          `          <spine>`,
+          `            <gap name="Subtitle Track Gap" offset="0s" duration="${seqDur}" start="0s">`,
+          titleNodes,
+          `            </gap>`,
+          `          </spine>`,
+          `        </sequence>`,
+          `      </project>`,
+          `    </event>`,
+          `  </library>`,
+          `</fcpxml>`
+        ].join("\n");
+      }
+
+      function runStudio() {
+        const raw = els.source.value;
+        els.charCount.textContent = `${raw.length} chars`;
+        const fpsKey = els.targetFps.value;
+        const fpsCfg = FPS_TABLE[fpsKey] || FPS_TABLE["24"];
+        const fpsVal = fpsCfg.num / fpsCfg.den;
+        const driftScale = DRIFT_FACTORS[els.driftMode.value] || 1.0;
+        const isPortrait = els.layoutMode.value === "portrait";
+        const maxChars = Math.max(8, Math.min(80, Number(els.maxChars.value) || 28));
+        const closeGaps = els.chkGaps.checked;
+        const protectOrphans = els.chkOrphan.checked;
+        const stripHi = els.chkStrip.checked;
+
+        els.maxChars.disabled = !isPortrait;
+        els.kpiFpsPeriod.textContent = `${(1000 / fpsVal).toFixed(2)} ms / frame @ ${fpsKey}fps`;
+        els.inspectorBadge.textContent = `${fpsKey} fps · ${isPortrait ? `9:16 Single-Line (<=${maxChars}c)` : "Original Line Layout"}`;
+
+        const srcBlocks = parseSrtBlocks(raw, stripHi);
+        let snappedCount = 0;
+        let orphanTotal = 0;
+        const draftCues = [];
+
+        for (const blk of srcBlocks) {
+          const scaledStart = blk.startSec * driftScale;
+          const scaledEnd = blk.endSec * driftScale;
+          const sFrame = Math.round(scaledStart * fpsVal);
+          const eFrame = Math.max(sFrame + 1, Math.round(scaledEnd * fpsVal));
+
+          const exactStartMs = Math.round((sFrame * 1000) / fpsVal);
+          const exactEndMs = Math.round((eFrame * 1000) / fpsVal);
+          const origStartMs = Math.round(blk.startSec * 1000);
+          const origEndMs = Math.round(blk.endSec * 1000);
+          const wasSnapped = Math.abs(exactStartMs - origStartMs) >= 1 || Math.abs(exactEndMs - origEndMs) >= 1;
+          if (wasSnapped) snappedCount += 1;
+
+          if (!isPortrait) {
+            draftCues.push({
+              startFrame: sFrame,
+              endFrame: eFrame,
+              text: blk.lines.join("\n"),
+              snapped: wasSnapped,
+              healed: false
+            });
+          } else {
+            const joined = blk.lines.join(" ");
+            const { segments, orphanSaves } = splitPortraitSegments(joined, maxChars, protectOrphans);
+            orphanTotal += orphanSaves;
+            const weights = segments.map(seg => Math.max(1, seg.length + (/[,.!?;:，。！？；：]/.test(seg) ? 3 : 0)));
+            const totalWeight = weights.reduce((a, b) => a + b, 0);
+            const totalFrames = Math.max(segments.length, eFrame - sFrame);
+            let cursor = sFrame;
+            for (let i = 0; i < segments.length; i++) {
+              const segFrames = i === segments.length - 1
+                ? Math.max(1, eFrame - cursor)
+                : Math.max(1, Math.round((totalFrames * weights[i]) / totalWeight));
+              const nextEnd = i === segments.length - 1 ? Math.max(cursor + 1, eFrame) : cursor + segFrames;
+              draftCues.push({
+                startFrame: cursor,
+                endFrame: nextEnd,
+                text: segments[i],
+                snapped: wasSnapped,
+                healed: false
+              });
+              cursor = nextEnd;
+            }
+          }
+        }
+
+        let healedGaps = 0;
+        if (closeGaps) {
+          for (let i = 0; i < draftCues.length - 1; i++) {
+            const cur = draftCues[i];
+            const nxt = draftCues[i + 1];
+            const diffFrames = nxt.startFrame - cur.endFrame;
+            if (diffFrames < 0) {
+              cur.endFrame = Math.max(cur.startFrame + 1, nxt.startFrame);
+              cur.healed = true;
+              healedGaps += 1;
+            } else if (diffFrames >= 1 && diffFrames <= 2) {
+              cur.endFrame = nxt.startFrame;
+              cur.healed = true;
+              healedGaps += 1;
+            }
+          }
+        }
+
+        let overCpsCount = 0;
+        const srtChunks = [];
+        for (let i = 0; i < draftCues.length; i++) {
+          const c = draftCues[i];
+          c.startSec = (c.startFrame * fpsCfg.den) / fpsCfg.num;
+          c.endSec = (c.endFrame * fpsCfg.den) / fpsCfg.num;
+          c.startTc = formatSecToSrt(c.startSec);
+          c.endTc = formatSecToSrt(c.endSec);
+          const dur = Math.max(0.05, c.endSec - c.startSec);
+          const charLen = c.text.replace(/\s+/g, " ").trim().length;
+          c.cps = charLen / dur;
+          c.overCps = c.cps > 20.0;
+          if (c.overCps) overCpsCount += 1;
+          srtChunks.push(`${i + 1}\n${c.startTc} --> ${c.endTc}\n${c.text}`);
+        }
+
+        const srtText = srtChunks.join("\n\n") + (srtChunks.length ? "\n" : "");
+        const fcpxmlText = buildFcpxml(draftCues, fpsCfg, isPortrait);
+        latestResult = { cues: draftCues, srtText, fcpxmlText, fpsKey, isPortrait };
+
+        els.kpiCues.textContent = String(draftCues.length);
+        els.kpiCuesSub.textContent = `From ${srcBlocks.length} source block${srcBlocks.length === 1 ? "" : "s"}`;
+        els.kpiSnapped.textContent = String(snappedCount);
+        els.kpiGaps.textContent = String(healedGaps);
+        els.kpiOrphans.textContent = String(orphanTotal);
+        els.kpiCps.textContent = String(overCpsCount);
+        els.kpiCps.className = overCpsCount > 0 ? "kpi-value is-warn" : "kpi-value is-ok";
+        els.kpiCpsSub.textContent = overCpsCount > 0
+          ? `${overCpsCount} cue${overCpsCount === 1 ? " exceeds" : "s exceed"} 20 chars/sec`
+          : "All cues within broadcast speed";
+
+        if (!draftCues.length) {
+          els.cueList.innerHTML = `<div style="padding:24px;color:var(--muted);font-size:16px;">Paste or drop a .srt file on the left, or select one of the real test presets above.</div>`;
+          return;
+        }
+
+        els.cueList.innerHTML = draftCues.map((c, idx) => {
+          const fStart = "F" + String(c.startFrame).padStart(4, "0");
+          const fEnd = "F" + String(c.endFrame).padStart(4, "0");
+          const warnBadge = c.overCps ? `<span class="flag-warn">${c.cps.toFixed(1)} CPS (Fast)</span>` : `<span>${c.cps.toFixed(1)} CPS</span>`;
+          const healBadge = c.healed ? `<span class="flag-fix">1f Gap Healed</span>` : (c.snapped ? `<span class="flag-fix">Frame-Snapped</span>` : "");
+          return [
+            `<div class="cue-row${c.overCps ? " has-warn" : ""}">`,
+            `  <span class="cue-idx">#${idx + 1}</span>`,
+            `  <code class="cue-tc">${c.startTc} &rarr; ${c.endTc}<span class="cue-frames">${fStart} &rarr; ${fEnd} (${c.endFrame - c.startFrame}f)</span></code>`,
+            `  <div class="cue-text">${xmlEscape(c.text)}</div>`,
+            `  <div class="cue-meta">${warnBadge}${healBadge}</div>`,
+            `</div>`
+          ].join("");
+        }).join("");
+      }
+
+      function triggerDownload(filename, content, mime) {
+        const blob = new Blob([content], { type: mime });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      document.querySelectorAll("[data-preset]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const p = PRESETS[btn.getAttribute("data-preset")];
+          if (!p) return;
+          els.targetFps.value = p.fps;
+          els.layoutMode.value = p.layout;
+          els.maxChars.value = String(p.maxChars);
+          els.driftMode.value = p.drift;
+          els.source.value = p.srt;
+          runStudio();
+          els.status.textContent = `Loaded preset "${btn.textContent.trim()}" quantized to ${p.fps}fps.`;
+        });
+      });
+
+      ["input", "change"].forEach(ev => {
+        els.source.addEventListener(ev, runStudio);
+        els.layoutMode.addEventListener(ev, runStudio);
+        els.maxChars.addEventListener(ev, runStudio);
+        els.targetFps.addEventListener(ev, runStudio);
+        els.driftMode.addEventListener(ev, runStudio);
+        els.chkGaps.addEventListener(ev, runStudio);
+        els.chkOrphan.addEventListener(ev, runStudio);
+        els.chkStrip.addEventListener(ev, runStudio);
+      });
+
+      els.fileInput.addEventListener("change", e => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        file.text().then(txt => {
+          els.source.value = txt;
+          runStudio();
+          els.status.textContent = `Loaded ${file.name} locally (${txt.length} bytes, zero upload).`;
+        });
+      });
+
+      ["dragenter", "dragover"].forEach(ev => {
+        els.dropzone.addEventListener(ev, e => {
+          e.preventDefault();
+          els.dropzone.classList.add("is-dragover");
+        });
+      });
+      ["dragleave", "drop"].forEach(ev => {
+        els.dropzone.addEventListener(ev, e => {
+          e.preventDefault();
+          els.dropzone.classList.remove("is-dragover");
+        });
+      });
+      els.dropzone.addEventListener("drop", e => {
+        const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (!file) return;
+        file.text().then(txt => {
+          els.source.value = txt;
+          runStudio();
+          els.status.textContent = `Dropped ${file.name}, quantized in browser memory.`;
+        });
+      });
+
+      els.btnDlSrt.addEventListener("click", () => {
+        if (!latestResult.cues.length) return;
+        const suffix = `${latestResult.fpsKey}fps_${latestResult.isPortrait ? "9x16" : "quantized"}`;
+        triggerDownload(`subtitles_${suffix}.srt`, latestResult.srtText, "text/plain;charset=utf-8");
+        els.status.textContent = `Exported subtitles_${suffix}.srt (${latestResult.cues.length} integer-frame cues).`;
+      });
+
+      els.btnDlFcpxml.addEventListener("click", () => {
+        if (!latestResult.cues.length) return;
+        const suffix = `${latestResult.fpsKey}fps_${latestResult.isPortrait ? "9x16" : "16x9"}`;
+        triggerDownload(`subtitles_${suffix}.fcpxml`, latestResult.fcpxmlText, "application/xml;charset=utf-8");
+        els.status.textContent = `Exported Final Cut Pro v1.10 subtitles_${suffix}.fcpxml (${latestResult.cues.length} connected titles).`;
+      });
+
+      els.btnCopySrt.addEventListener("click", () => {
+        if (!latestResult.srtText) return;
+        navigator.clipboard.writeText(latestResult.srtText).then(() => {
+          els.status.textContent = `Copied ${latestResult.cues.length} quantized cues to clipboard.`;
+        });
+      });
+
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add("is-visible"), idx * 60);
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.06 });
+        document.querySelectorAll(".reveal-item").forEach(el => io.observe(el));
+      } else {
+        document.querySelectorAll(".reveal-item").forEach(el => el.classList.add("is-visible"));
+      }
+
+      const def = PRESETS.en_review;
+      els.source.value = def.srt;
+      runStudio();
+    })();
+  </script>
+</body>
+</html>
