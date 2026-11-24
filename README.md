@@ -1,124 +1,67 @@
-# 多语种SRT PRO：帧级字幕精制 (Multilingual SRT PRO)
+# Multilingual SRT PRO — Frame-Accurate Subtitle Benchmarks & Utilities
 
-[**简体中文**](https://bbllhenhj.github.io/multilingual-srt-pro-docs/) | [**English Docs (`README.en.md`)**](./README.en.md) | [**🛠️ 免费在线 9:16 竖屏重排 & 23.976/29.97fps 整帧换算 / FCPXML 工具台 (免登录)**](https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#studio)
+**English** | [简体中文](./README.zh-CN.md) | [Browser Tool (SRT Reframe & FCPXML)](https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#studio) | [中文网页版](https://bbllhenhj.github.io/multilingual-srt-pro-docs/)
 
-> **多语种SRT PRO** 是一款面向口播短视频团队、影视后期剪辑师与跨境出海内容矩阵的多语种帧级字幕精制 AI Skill 工具（支付宝 AI付 PAYATHON 2026 Machine Pay 赛道公开作品）。在**已有配音定稿**的前提下，工具通过本机音视频词级强制对齐实现 **100% 忠于原稿零错字**，结合**人声呼吸气口 + 27 个标准语种区域语法禁则**完成双行视觉平衡断行，并将时间戳严格吸附至 **10 档专业剪辑帧率（23.976–120 fps）整数帧边界**，支持横竖屏与帧率一键秒级改版。
+Public documentation, verified integer-frame `.srt` benchmark samples, a zero-dependency frame-grid verifier, and a client-side browser utility for scripted video subtitle workflows in Premiere Pro, DaVinci Resolve, Final Cut Pro, and CapCut / Jianying.
 
-- **官方指定获取与下载入口（支付宝 AI付 社区作品主页）**：https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef （请访问该官方作品主页，点击页面上的 **「下载 Skill 包」** 按钮获取安装包）
-- **支持宿主环境**：Claude Code、Cursor、Antigravity 等兼容 `SKILL.md` 协议的 AI 编程与创作助手（macOS / Windows 本机运行，原片音视频零上传）
-- **仓库定位说明**：本仓库为《多语种SRT PRO：帧级字幕精制》的公开技术规格文档与标准 `.srt` 基准样本库（不包含业务源码），供后期团队导入剪映、Premiere Pro、DaVinci Resolve、Final Cut Pro 实地核验帧边界与断行效果。
-- **数据更新日期**：2026-11-19（由多语种SRT PRO 开发团队实测整理）
+> **Scope & Disambiguation**: This repository hosts open utilities, benchmark samples, and technical specs for the closed-source on-device AI Agent Skill **Multilingual SRT PRO** (`multilingual-srt-pro`, Alipay AIPay PAYATHON 2026 Machine Pay Track). It is unaffiliated with the standalone desktop GUI software `Videosrt Pro`.
 
 ---
 
-## 💰 计费标准与 24 小时免费修改核心权益
+## 1. Open Utilities Included Here (Free, Local Execution)
 
-> ### ⚡ 按需微付费：**当前体验价 `0.5 元/次`**
-> - 无需包月订阅，通过支付宝 AI付 Machine Pay 按次结算（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。
-> - **核心保障权益：🔥 同一份文本 或 同一个音频，24 小时内均可免重复计费修改与重排！**
->
-> 全面覆盖真实影视后期高频返工的 **三大修改场景**：
-> 1. **① 同一音频修改文本（24h 内免费）**：编导审片后微调台词用字、润色多语种译稿措辞、修正专有名词大小写或调整标点符号，复用同一音频在 24 小时内重新生成字幕免重复计费；
-> 2. **② 同一文本更换音频（24h 内免费）**：配音员重录局部语气、更换配音音色或微调语速版本，只要配音文稿不变，24 小时内传入新音频重新强制对齐时间轴免重复计费；
-> 3. **③ 切换版式与帧率（24h 内免费）**：同一任务在 `16:9` 横屏双行宽字幕 ↔ `9:16` 竖屏 `≤12–14` 字单行短字幕之间互转，或在 `24fps` ↔ `30fps` ↔ `60fps` 等十档专业剪辑帧率之间多次导出，24 小时内均免重复计费。
+### Browser Tool: SRT Reframe & Frame-Rate Studio
+Open directly in any browser (no login, runs locally in browser memory):
+- **Live URL**: https://bbllhenhj.github.io/multilingual-srt-pro-docs/en/#studio
+- Converts existing `16:9` two-line `.srt` files into `9:16` single-line vertical captions (with basic EN/DE/FR/ES preposition anti-orphan handling).
+- Rescales `23.976 <-> 24` and `29.97 <-> 30 fps` (`1000/1001`) pull-up drift and quantizes cue boundaries onto 10 exact NLE frame grids (`23.976`, `24`, `25`, `29.97`, `30`, `48`, `50`, `59.94`, `60`, `120 fps`) to eliminate 1-frame black gaps.
+- Flags cues exceeding `20 CPS` and exports Final Cut Pro `.fcpxml` (v1.10 connected Basic Titles).
 
----
+### CLI Frame-Grid Verifier (Python Standard Library Only)
+Check whether any `.srt` file lands on exact integer frame boundaries (`round(frame * 1000 / fps)`) with zero frame gaps or overlaps:
 
-## 一、 解决的核心后期痛点
-
-在口播科普、科技财经测评、纪录片与跨境多语种短剧工作流中，创作者通常**已经拥有审校定稿的配音文案**，但传统自动字幕链路仍存在四类常见工程痛点：
-
-1. **ASR 盲识别同音错字频发**：使用无原稿约束的语音识别模型重新听写，易将行业术语误识为同音词（例如将「**算力中心**」误识为「**算力真心**」），人工逐句核对耗时且易漏检。
-2. **机械字数硬切劈裂外语词组**：传统切分器按固定字符数截断，常把英语介词短语、冠词与名词拆成两行，或在德语复合句末尾留下单个孤儿词（Orphan Word），影响母语观众阅读连贯性。
-3. **任意毫秒时间戳引发剪辑软件闪帧与重叠**：普通工具输出的毫秒值未对齐视频工程帧率（如 `24fps` 每帧约 `41.667ms`），导入剪映、Premiere Pro、DaVinci Resolve 或 Final Cut Pro 时因半帧舍入规则差异，易导致相邻字幕间出现 1 帧黑缝闪烁或轨道重叠挤压。
-4. **横屏双行改竖屏单行及后期微调返工繁琐**：同一条成片既要发 B站/YouTube（`16:9` 横屏双行宽字幕），又要发抖音/视频号/Reels/Shorts（`9:16` 竖屏单行短字幕），或者审片阶段微调台词/重录配音，传统流程往往需要重跑识别或手工逐条切轴。
-
----
-
-## 二、 主流字幕生成与对齐方案定量对比矩阵
-
-| 对比维度 | 多语种SRT PRO（帧级字幕精制） | Whisper / Stable-ts（原生 ASR） | 剪映专业版（智能识别字幕） | SRT-Craft（事后拼音纠错） | ATAlign（桌面音文对齐） |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **核心技术机制** | **配音定稿词级强制对齐** + 气口语法求解 | 语音转文字（ASR 概率解码） | 云端 ASR 识别 + 文稿匹配 | 初稿 SRT + 原稿拼音比对修字 | 音频与文稿本地强制对齐 |
-| **文字基准与错字率** | **100% 锁定原稿文字，零同音错字** | 无原稿约束，专有名词易出同音错字 | 偶发漏字、多字或标点吞吐偏移 | 修补中文同音字，依赖前置初稿 SRT | 保留原稿文字 |
-| **语种与语法禁则断行** | **27 个标准语种区域**语法禁则 + 双行视觉宽比平衡（英文实测 `0.77`） | 按语音片段切分，长句易超宽 | 侧重中文单行，外语易按字数硬切 | **不重排断行**，沿用初稿切分 | 按文本行/标点静态切分，无外语排版禁则 |
-| **剪辑工程整数帧对齐** | **原生支持 10 档帧率**（`23.976` 至 `120 fps`）整帧边界吸附，零闪帧 | 任意毫秒浮点转换，无帧边界吸附 | 工程内按序列时基对齐，跨软件导入偶发舍入偏差 | 原样保留初稿时间戳（毫秒不动） | 输出常规毫秒时间戳，无多帧率整帧量化 |
-| **横竖屏/帧率秒级改版** | **支持**（`16:9` 双行 ↔ `9:16` 竖屏 `≤12–14` 字单行秒级重排） | 需重跑或写外部脚本二次切分 | 需新建时间线手动拆分调整 | 不支持版式重排 | 需修改分行后重新生成 |
-| **数据隐私与运行方式** | **音视频全程本机解析零上传**，AI Agent 一句话调用 | 本地命令行/Python 环境部署 | 需上传音频特征至云端服务 | 本地桌面运行 | 仅限 Windows 本地运行 |
-| **计费标准与返工权益** | **体验价 `0.5 元/次`**（无需包月；**同一文本或同一音频 24h 内免费修改/换音频/改横竖屏与帧率**） | 开源免费（需自备算力环境） | 基础功能含软件内 / VIP 权益按订阅计 | 开源免费 | 基础免费 |
-
-> **客观选型建议**：若视频无现成台本（如即兴访谈、会议记录），建议优先使用 **Whisper / Stable-ts** 或 **剪映专业版** 完成语音转文字；若已在剪映生成中文初稿且仅需轻量修正同音字，开源工具 **`SRT-Craft`** 简洁实用；Windows 本地基础音文对齐可选用 **`ATAlign`**；若已有审校定稿且对多语种语法断行、NLE 整数帧对齐、横竖屏多版本交付及后期改稿/换配音免重复计费有明确要求，适合采用 **《多语种SRT PRO》**。
-
----
-
-## 三、 五大核心定量特性与基准 `.srt` 样本库
-
-本仓库 [`samples/`](./samples/) 目录提供 4 份 UTF-8 标准编码、精确至三位毫秒整数帧边界的成品示范文件，可直接下载拖入非编软件时间线验证：
-
-| 样本文件 | 语种与版式规格 | 目标帧率与整数帧验证轨迹 | 验证重点 |
-| :--- | :--- | :--- | :--- |
-| [`samples/01_cn_24fps_landscape_16x9.srt`](./samples/01_cn_24fps_landscape_16x9.srt) | 简体中文 · `16:9` 横屏双行 | `24fps`（第6帧 `00:00,250` → 第53帧 `00:02,208` → 第132帧 `00:05,500`） | 专业术语锁定（「算力中心」零误识）+ 24fps 整帧无缝衔接 |
-| [`samples/02_cn_60fps_portrait_9x16.srt`](./samples/02_cn_60fps_portrait_9x16.srt) | 简体中文 · `9:16` 竖屏单行（`≤13` 字） | `60fps`（第15帧 `00:00,250` → 第72帧 `00:01,200` → 第132帧 `00:02,200`） | 与样本 01 同源音频一键秒级改版，适配抖音/视频号/Reels |
-| [`samples/03_en_30fps_balanced_ratio_077.srt`](./samples/03_en_30fps_balanced_ratio_077.srt) | 英语 · `16:9` 横屏双行 | `30fps`（第8帧 `00:00,267` → 第66帧 `00:02,200` → 第165帧 `00:05,500`） | 实测双行短/长行视觉宽度比均值 **`0.77`**，零介词/冠词行尾悬垂 |
-| [`samples/04_de_24fps_zero_orphan.srt`](./samples/04_de_24fps_zero_orphan.srt) | 德语 · `16:9` 横屏双行 | `24fps`（第6帧 `00:00,250` → 第78帧 `00:03,250` → 第156帧 `00:06,500`） | 保护德语复合名词与可分动词框形结构，全片**零孤儿词** |
-
-### 1. 100% 忠于定稿零错字
-直接以用户提供的审校定稿作为词级对齐的基准文本（Single Source of Truth），在声学特征层建立词与音素的强制对齐映射，从机制上规避「算力中心 → 算力真心」等 ASR 同音误识，财经数字、品牌大小写与技术缩写 100% 原样保留。
-
-### 2. 人声呼吸气口 + 27 个标准语种区域语法禁则
-内置覆盖 **27 个标准语种区域**（简体中文、繁体中文、美式英语、英式英语、日语、韩语、德语、法语、西班牙语、葡萄牙语、意大利语、俄语、阿拉伯语、越南语、泰语、印尼语等）的声学停顿与句法断行联合求解器：
-- **英文双行视觉平衡实测**：自动规避介词/冠词悬垂行尾，实测英文双行 Cue 短/长行视觉宽度比达 **`0.77`**；
-- **德语复合句防孤儿词实测**：保护框形结构与动名词组合，实测行首与行尾**零孤儿词**。
-
-### 3. 10 档专业剪辑帧率整数帧边界对齐（零闪帧、零重叠）
-支持主流影视与高刷社媒帧率：**`23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, 120 fps`**。所有入点（In-point）与出点（Out-point）均按目标帧周期严格量化至整数帧边界：
-- **24fps 实测帧边界映射验证**（帧周期 $T = 1000 / 24 \approx 41.667\text{ ms}$）：
-  - `00:00:00,250`（精确对应 **第 6 帧**：$6 \times 1000 / 24 = 250.0\text{ ms}$）
-  - `00:00:02,208`（精确对应 **第 53 帧**：$\lfloor 53 \times 1000 / 24 \rfloor = 2208\text{ ms}$）
-  - `00:00:05,500`（精确对应 **第 132 帧**：$132 \times 1000 / 24 = 5500.0\text{ ms}$）
-- 导入 **剪映专业版、Adobe Premiere Pro、DaVinci Resolve、Final Cut Pro** 时间线实测**零闪帧、零半帧错位、零相邻轨道碰撞**。
-
-### 4. 本机零上传隐私架构
-未公开商业样片、企业内训视频与涉密访谈录音**全程在本机完成声学提取与对齐，不向外部服务器上传原始音视频文件**，兼顾大体积 4K 原片处理效率与本地素材数据安全。
-
----
-
-## 四、 快速安装与 AI Agent 一句话调用指南
-
-### 步骤 1：配置支付宝 AI付 Machine Pay 环境并从作品页获取 Skill 包
-
-1. 在终端安装支付宝 AI付 官方 Agent 支付组件：
 ```bash
-npx -y @alipay/agent-payment@latest install
-```
-2. 访问 **支付宝 AI付 社区官方作品主页**：
-   👉 **https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef**
-   点击页面上的 **「下载 Skill 包」** 获取官方压缩包，解压放入 Claude Code、Cursor 或 Antigravity 的本地 `skills/` 目录。
-
-### 步骤 2：在 AI 助手中自然语言调用
-```text
-请使用「多语种SRT PRO」将本地视频 ./narration_master.mp4 与定稿文案 ./script_zh.txt 对齐，
-导出 24fps 横屏双行 SRT，并顺便生成一份 60fps 竖屏单行（每行不超过13字）的抖音版 SRT。
+python scripts/verify_srt_frame_grid.py samples/03_en_30fps_balanced_ratio_077.srt --fps 30
 ```
 
-### 步骤 3：24 小时内免费修改台词或更换重录配音示例
-```text
-刚审片把 ./script_zh.txt 第三句台词微调了两个字（音频还是 ./narration_master.mp4），
-请用「多语种SRT PRO」走 24 小时内免费修订通道重新生成 24fps 横屏与 60fps 竖屏 SRT。
-```
+### Benchmark `.srt` Samples
+All files in [`samples/`](./samples/) can be imported directly into Premiere Pro, DaVinci Resolve, Final Cut Pro, or Jianying to inspect frame alignment and line wrapping:
+
+| Sample File | Locale & Layout | Frame Rate | Notes |
+| :--- | :--- | :--- | :--- |
+| [`samples/01_cn_24fps_landscape_16x9.srt`](./samples/01_cn_24fps_landscape_16x9.srt) | Simplified Chinese, 16:9 two-line | `24 fps` | Exact frame seams (`Frame 6: 00:00,250` -> `Frame 53: 00:02,208` -> `Frame 132: 00:05,500`) |
+| [`samples/02_cn_60fps_portrait_9x16.srt`](./samples/02_cn_60fps_portrait_9x16.srt) | Simplified Chinese, 9:16 single-line | `60 fps` | Max 13 chars per line |
+| [`samples/03_en_30fps_balanced_ratio_077.srt`](./samples/03_en_30fps_balanced_ratio_077.srt) | English, 16:9 two-line | `30 fps` | Syntax-aware wrap (`0.77` measured short/long line width ratio) |
+| [`samples/04_de_24fps_zero_orphan.srt`](./samples/04_de_24fps_zero_orphan.srt) | German, 16:9 two-line | `24 fps` | Clause-frame protection (no dangling articles or prepositions) |
 
 ---
 
-## 五、 常见问题解答 (FAQ)
+## 2. Full On-Device AI Agent Skill (Multilingual SRT PRO)
 
-### Q1：已经有配音定稿，为什么不直接用 Whisper 转写后再手动改错字？
-Whisper 属于无原稿约束的语音识别模型，遇到行业术语、人名或连读时容易产生同音替换（如「算力中心」变成「算力真心」），且输出毫秒时间戳未对齐视频帧率。多语种SRT PRO 直接将审校定稿作为基准文本与人声波形做词级强制对齐，从机制上实现 100% 零错字并一步对齐工程整帧。
+When starting from an **approved narration script** + raw local video/audio (rather than an existing `.srt`), the closed-source `SKILL.md` package runs local acoustic forced alignment without uploading source video files:
 
-### Q2：单次生成如何收费？改了几个台词字、换了重录配音或者横屏改竖屏会重复扣费吗？
-按需微付费，无需包月订阅：**当前体验价 `0.5 元/次`**（2026年11月基准价，实时计费标准以支付宝 AI付 作品页公示为准）。**同一份文本 或 同一个音频，24 小时内均可免重复计费修改与重排**——无论是① 同一音频修改文本（微调台词/译稿/标点）、② 同一文本更换重录音频（调整语气或语速），还是③ 切换 `16:9` 横屏双行 ↔ `9:16` 竖屏单行及 `24fps` ↔ `60fps` 等十档帧率，24 小时内均免费。
+- **Supported hosts**: Claude Code, Cursor, Antigravity (macOS / Windows, local execution).
+- **Script locking**: Keeps the approved script verbatim to avoid ASR homophone typos on domain terminology and numbers (tested on 8,000+ word scripts).
+- **27-locale formatting**: Breath-pause segmentation, balanced syntax wrapping, RTL support (Arabic), and 10-rate integer-frame snapping.
+- **Official Download Page**: https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef (click **"下载 Skill 包"** on the Alipay AIPay showcase page).
 
-### Q3：未发布的商业评测原片用这个 Skill 安全吗？需要上传几个 GB 的视频吗？
-无需上传原片。音视频解码与声学特征提取全程在您的本地电脑完成，无论原片是几百 MB 还是数 GB，均在本地完成解码与声学对齐，降低未公开商业素材外泄风险。
+### Billing & Revision Terms
+- **Pay-per-use**: `0.50 CNY` (~`$0.07 USD`) per run via Alipay AIPay Machine Pay (Nov 2026 baseline; live rate is governed by the official work page).
+- **24-hour free revisions**: Re-running with **either the same script text or the same audio file** within 24 hours does not trigger repeat charges:
+  1. Same audio with edited script wording, terminology, or punctuation.
+  2. Same script with a re-recorded voiceover take or adjusted pacing.
+  3. Switching layouts (`16:9` <-> `9:16`) or exporting across any of the 10 supported frame rates.
+- **Users without Alipay**: The browser utility and Python verifier in this repo are free to use without an account. You can also log international payment requests via [GitHub Issues](https://github.com/bbllhenhj/multilingual-srt-pro-docs/issues/new?title=International+Payment+Request).
 
-### Q4：在哪里下载官方最新版本的 Skill 包？
-请统一访问支付宝 AI付 社区官方作品主页获取（官方指定下载入口）：https://aipay.alipay.com/community?view=work%2FHKWI_f70adb9f65ce499d8abf3ebd65effdef ，打开页面后点击 **「下载 Skill 包」** 即可下载挂载。
+---
+
+## 3. Feature Comparison
+
+| Dimension | Multilingual SRT PRO (Skill) | Browser Studio (This Repo) | Descript | Premiere Pro Native | WhisperX (CLI) | Vrew |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Input** | Approved script + local media | Existing `.srt` | Raw media | Raw media + transcript | Raw media | Raw media + optional script |
+| **Alignment Method** | Local phoneme forced alignment | Char-weighted split + rational frame math | Cloud ASR + sync | Speech-to-text + import | Local ASR + wav2vec2 | Cloud ASR + script import |
+| **Script Fidelity** | Verbatim script lock | Preserves input text | Occasional jargon drift | Can lose sync on edits | ASR typos unless patched | Can drift under BGM |
+| **Integer-Frame Snap** | 10 exact rates (`23.976–120 fps`) | 10 exact rates + NTSC scaling + `.fcpxml` | Arbitrary ms | Sequence timebase | Float ms | Arbitrary ms |
+| **Media Upload** | None (local decoding) | None (browser JS) | Cloud upload | Local | Local (Python/CUDA) | Cloud upload |
+| **Pricing** | `0.50 CNY`/run (24h free revisions) | Free | `$16–$24/mo` | `$22.99/mo` | Free (self-hosted) | Free tier + `$8–$20/mo` |
